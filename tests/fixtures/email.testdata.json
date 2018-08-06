@@ -1,0 +1,47 @@
+﻿{
+  "sendEmail": {
+    "body": "",
+    "epcId": "72ba5781-8ffe-11e8-b9a1-9b4595ca0748",
+    "agentId": "72ba5780-8ffe-11e8-b9a1-9b4595ca0748",
+    "mediaType": "4",
+    "relationType": "3",
+    "from": null,
+    "to": "arun5.saini@aricent.com",
+    "bcc": "",
+    "subject": "123",
+    "skillId": null,
+    "skillAddress": null,
+    "emailAccountId": "2",
+    "incomingAttachments": [],
+    "forwardedReplyAttachments": []
+  },
+  "sendEmailUrl": "/applications/emailclient/message/Send?epcId=72ba5781-8ffe-11e8-b9a1-9b4595ca0748&tabId=347e4d3c-bfcd-4fff-f6fc-bbcd5c1a5d40",
+
+
+
+  "createIFrameFormForPostData": {
+    "formAction": "/applications/emailclient/message/Attachments?t=New&tId=c0297669-d187-4090-e500-ea185e1eae72&epcId=2cde0e32-9000-11e8-b9a1-9b4595ca0748",
+    "formTarget": "sender-c0297669-d187-4090-e500-ea185e1eae72",
+    "formInputs": {
+      "Authorization": "Basic OTIxMDA6MTIzNA==",
+      "X-UWF-FinesseHost": "s1fin115-1a.devsw.upstreamworks.com",
+      "X-UW-AgentId": "92100"
+    }
+  },
+
+
+  "decodeHTMLEntities": {
+    "htmlText": "<h1>h3````e45453llo</h1><h1></h1><div>asdfadfdsgksfldjhs;<div>' &</div>21341234345232337897967</div>96'asdf''adf''dgh''23232323234545ssdfngkjlsnhgjkhs,,....,,..,;\\\"```2323'''''ghfjgjfjh\\\"ghjhfhj",
+    "encodedHTMLText": "&lt;h1&gt;h3````e45453llo&lt;/h1&gt;<h1></h1><div>asdfadfdsgksfldjhs;&lt;div&gt;&#39;&#160;&&lt;/div&gt;21341234345232337897967</div>96'asdf''adf''dgh''23232323234545ssdfngkjlsnhgjkhs,,....,,..,;\\\"```2323'''''ghfjgjfjh\\\"ghjhfhj"
+
+  },
+
+  "plaintextToHtml": {
+    "textWithLink": "hi, here is a a link http://testlabz.com/",
+    "linkTextToHTML": "hi, here is a a link <a class=\"colored-link-1\" title=\"http://testlabz.com/\" href=\"http://testlabz.com/\" target=\"_blank\">http://testlabz.com/</a>"
+  }
+
+
+
+
+}
