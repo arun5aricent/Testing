@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 67.0.3396 (Windows 10 0.0.0)" package="" timestamp="2018-08-07T09:42:23" id="0" hostname="outsource10" tests="2" errors="0" failures="1" time="0.003">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"/>
+  </properties>
+  <testcase name="decodeHTMLEntities test suit should return html string without modification" time="0.002" classname="decodeHTMLEntities test suit"/>
+  <testcase name="decodeHTMLEntities test suit should return html string without modification" time="0.001" classname="decodeHTMLEntities test suit">
+    <failure type="">Expected 5 to be 4.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (tests/emailclient.spec.js:27:23)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
