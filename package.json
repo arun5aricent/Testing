@@ -15,7 +15,8 @@
     "karma": "^2.0.4",
     "karma-chrome-launcher": "^2.2.0",
     "karma-htmlfile-reporter": "~0.3",
-    "karma-jasmine": "^1.1.2"
+    "karma-jasmine": "^1.1.2",
+    "karma-junit-reporter": "^1.2.0"
   },
   "dependencies": {
     "latest-version": "^4.0.0",
