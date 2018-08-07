@@ -17,27 +17,27 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
       files: [
       //load fixtures
-          {
-              pattern: 'tests/**/*.json',
-              watched: true,
-              served: true,
-              included: false
-          },
+          //{
+          //    pattern: 'tests/**/*.json',
+          //    watched: true,
+          //    served: true,
+          //    included: false
+          //},
 
-          'tests/helpers/js.helpers.js',
-          'src/mock.js',         
+          //'tests/helpers/js.helpers.js',
+          //'src/mock.js',         
 
-          '../../static/internal/common/js/eventLogger.js',
-          '../../static/task-js',  
-          '../../static/internal/common/js/io.js',
-          '../../static/internal/common/js/iframe-io.js',
-          '../../static/internal/services/gadget/gadgetservices.js',
+          //'../../static/internal/common/js/eventLogger.js',
+          //'../../static/task-js',  
+          //'../../static/internal/common/js/io.js',
+          //'../../static/internal/common/js/iframe-io.js',
+          //'../../static/internal/services/gadget/gadgetservices.js',
         
-          '../../static/internal/gadget/js/EmailClient.js',
-          '../emailclient/scripts/emailclient.js',
-          'fake.methods/emailclient.fake.js',
+          //'../../static/internal/gadget/js/EmailClient.js',
+          //'../emailclient/scripts/emailclient.js',
+          //'fake.methods/emailclient.fake.js',
 
-          "tests/fixtures/email.dom.js",
+          //"tests/fixtures/email.dom.js",
           './tests/emailclient.spec.js',
                     
        
