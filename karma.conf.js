@@ -61,7 +61,7 @@ module.exports = function(config) {
       reporters: ['progress', 'html', 'junit'],
  
     htmlReporter: {
-      outputFile: 'tests.report/units.html',
+        outputFile: 'C:/Jasmine_Demo/tests.report/units.html',
             
       // Optional
         pageTitle: 'EmailClientUnitTests Unit Tests',
