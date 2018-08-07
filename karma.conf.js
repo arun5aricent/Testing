@@ -61,7 +61,7 @@ module.exports = function(config) {
       reporters: ['progress', 'html', 'junit'],
  
     htmlReporter: {
-      outputFile: 'tests.report/units.html',
+      outputFile: 'tests.report/emailTests.html',
             
       // Optional
         pageTitle: 'EmailClientUnitTests Unit Tests',
@@ -73,15 +73,15 @@ module.exports = function(config) {
       // the default configuration
       junitReporter: {
           outputDir: '', // results will be saved as $outputDir/$browserName.xml
-          outputFile: 'target/surefire-reports/TESTS-TestSuite.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
+          outputFile: 'tests.report/emailTests.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
           suite: '', // suite will become the package name attribute in xml testsuite element
-          useBrowserName: true, // add browser name to report and classes names
+          useBrowserName: false, // add browser name to report and classes names
           nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element
           classNameFormatter: undefined, // function (browser, result) to customize the classname attribute in xml testcase element
           properties: {} ,// key value pair of properties to add to the <properties> section of the report
           xmlVersion: null // use '1' if reporting to be per SonarQube 6.2 XML format
       },
-
+   
 
     // web server port
     port: 9876,
@@ -107,7 +107,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
