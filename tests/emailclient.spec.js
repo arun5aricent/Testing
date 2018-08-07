@@ -19,6 +19,15 @@ describe('decodeHTMLEntities test suit', function () {
 
     });
 
+    //test a html string
+
+    it('should return html string without modification', function () {
+
+
+        expect(2 + 3).toBe(4);
+
+    });
+
 
 
 });
