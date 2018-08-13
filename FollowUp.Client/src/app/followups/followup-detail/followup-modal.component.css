@@ -1,0 +1,544 @@
+/* ------------------------------------------------------------------------------ */
+/* MODAL  ======================================================================= */
+/* ------------------------------------------------------------------------------ */
+#myModal                                    { top:26px !important}	
+.modal-backdrop                             { position: relative !important}
+.modal                                      { position:fixed; width: 100%; height: 100%; min-height: 670px; background: rgba(0,0,0,0.75); z-index: 10000; color: #777; top: 0; overflow: hidden}
+.modal h1                                   { color: #44CB7F; font-weight: normal; font-size: 24px; margin-bottom: 30px; }
+.button_modalEnable                         { position:absolute; top:35px; right: 40px; cursor: pointer}
+.button_modalEnable input                   { position:absolute; left:-35px; top: -5px; display:inline-block} /* revisit: not an elegant solution */
+.modalHeader                                { display:flex; flex-flow: row;}
+.modalHeaderSide,
+.modalHeaderBody,
+.modalHeaderButton                          { background: black; height: 65px; }
+.modalHeaderBody                            { flex: 1 1 auto; margin-right: 4px;}
+.modalHeaderBody em                          { color: #DDD; display: block; width: 65px; font-size: 45px; line-height: 90px; position:absolute}
+.modalHeaderBody h1                         { color: #CCC; margin: 10px 0 0 65px;font-size: 26px; font-weight:bold; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;}
+.modalHeaderBody h2                         { color: #999; margin: 2px 0 0 65px; font-size: 11px; position:absolute; top:21px; } 
+.modalHeaderSide                            { flex: 0 0 100px; }
+.modalHeaderButton                          { flex: 0 0 65px; margin-right: 4px; font-size: 26px; padding-top: 10px; text-align: center; }
+.modalHeaderButton p                        { font-size: 11px;  margin-top:10px;  }  
+.modalHeaderButton:hover                    { background: rgba(0,0,0,0.5); text-shadow: 3px 3px 6px black; transform: scale(1.075, 1.075); }
+.modalFooterActionBar                       { text-align: right; border-top: 1px solid #E0E0E0; flex: 1 1 35px; margin-top: 10px; padding-top: 7px;margin-bottom:8px;}
+modalBodyFullSize h1 span                   { margin-bottom:-5px;}
+/* use: largest modal size */
+.modalBodyFullSize                          { background: white; position: absolute; left: 100px; right: 100px; top: 85px;height:600px; min-height: 400px; min-width: 600px; box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75); padding: 20px; display:flex; padding-bottom: 2px; padding-top: 0px;word-break: break-word;}
+
+
+.modalTabs_language                         { width: 100%; border-bottom: 1px solid #DDD; margin-bottom:10px}
+.modalTabs_language button                  { font-size: 11px; background:white; border: 1px solid #DDD; margin: 0 -1px -1px; padding: 4px 10px; color: #0077C1; border-radius: 4px 4px 0px 0px}
+.modalTabs_language button:hover            { background:rgba(0,0,0,0.05);  padding-bottom: 8px; margin-bottom: -5px; transform:translateY(-4px)}
+.modalTabs_language button.active           { border-bottom-color: white; color:black; background: none; cursor:default}
+.modalTabs_language button.active:hover     { padding-bottom: 4px; margin-bottom: -1px; transform:none; background:none}
+
+.followup_modal                             { display:flex; flex-direction: column; flex: 1;}
+.followup_modal h2,.followup_modal h3       { margin-bottom: 10px}
+.button_followupComplete                    { position:absolute; top:35px; right: 40px; cursor: pointer; font-weight: normal;}
+.button_followupComplete button             { font-size: 15px }
+
+.followup_modal dl                          { border-bottom:  1px solid #E0E0E0; margin: 0; padding:6px 0;display: flex; flex: 0 0 auto;font-size: 12px; height:28px;}
+.followup_modal dl:last-child               { border:none; font-size: 12px; height:28px;} 
+.followup_modal dt,
+.followup_modal dd                          { margin: 0; padding: 0; font-size: 12px;}
+.followup_modal dt                          { flex: 0 0 100px; font-weight: normal; text-align: right; margin-right: 15px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.followup_modal dd                          { flex: 1 }
+.followup_modal textarea                    { border: none; width:100%; font: 12px/12px arial, sans-serif; background: none;}
+.followup_modal input                       { border: none; width:100%; font-size: 12px; background: none; }
+
+.followup_modalLeft                         { flex: 0 0 35%; min-width:500px; padding-right: 20px; display:flex; flex-direction: column;  }
+.followup_modalRight                        { display: flex; flex-direction: column; flex: 1 1 auto; width: 100%; }
+
+.followup_modalEntry                        { overflow-y: auto; flex: 1 1 auto;-ms-flex: 1 1 200px; padding-right: 10px; margin-top:10px;}
+.followup_modalEntry textarea               { resize:none }
+.followup_modalEntry section                {  margin-bottom: 15px; position:relative}
+.followup_modalEntry div                    { margin-left: 50px}
+.followup_modalEntry span                   { float:left }
+.followup_modalEntry header                 { display:inline-block; color:black; font-size: 15px; font-weight:bold }
+.followup_modalEntry time                   { display:inline-block; font-size: 11px}
+.followup_modalEntry article                { display:block; margin-top: 5px; line-height: 15px; font: 12px/12px arial, sans-serif; height:auto}
+
+.followup_modalTasks                        { margin-top: 20px;  font-size:11px; flex: 0 0 auto; position: relative; padding-top: 5px}
+.followup_modalTasks table                  { width: 100%; }
+.followup_modalTasks th                     { background: #DDD; padding: 5px 0; text-align: left; color: black;  }
+.followup_modalTasks td                     { border-bottom: 1px solid #DDD; padding: 2px 0 }
+
+.followup_modalContact                      { font-size:11px; overflow-y:auto; flex: 1 1 249px;  -ms-flex: 0 0 249px; position:relative; padding-top: 5px;max-width:380px;}
+.followup_modalContact dt                   { font-weight:bold; flex: 0 0 100px; font-size:11px;margin-right: 15px;text-align: right; margin:auto;margin-top:3px;}
+.followup_modalContact dl                   { height:26px;padding:2px 0;font-size:11px;}
+.followup_modalContact dd                   { padding-left: 16px; padding-bottom: 2px;}
+.followup_modalContact input                { font-size:11px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.followup_modalAddEntryBar                  {  flex: 0 0 30px; width: auto; padding: 3px 0; text-align: right; border-bottom:  1px solid #E0E0E0; border-top:  1px solid #E0E0E0;font-size: 12px;}
+.followup_modalEntryBar                     {  flex: 0 0 30px; width: auto; padding: 3px 0; text-align: right; border-top:  1px solid #E0E0E0;font-size: 12px;}
+
+.followup_tasks_icon                        { background: #DDD; color:white; height: 35px; width: 35px; font-size: 20px; border-radius: 4px; text-align:center; line-height: 38px}
+.followup_associate_task                    {display: inline-block; padding-right:5px;}
+
+.rearrangeHeight {
+    flex: 1 1 275px !important;  
+    -ms-flex: 0 0 275px !important;
+}
+
+#modalContactHeader{
+  margin-top:20px;
+}
+#modalContactHeader h2,#modalContactHeader h3{
+  margin-bottom:0px;
+}
+
+/*Global CSS */
+.disable                               { display: none !important}  
+.textRight                             { text-align: right } 
+.buttonInterface                       { font-size: 11px; margin-left: 4px; padding: 0 5px; height: 20px;  background: #FCFCFC; background-image: linear-gradient(to bottom, #FCFCFC, #BBBBBB); border-radius: 4px; box-shadow: 1px 1px 3px rgba(0,0,0,0.10);  color: #000000; border: solid #BBBBBB 1px; }
+.buttonInterface span                  { font-size: 12px; vertical-align: middle}
+.buttonInterface:hover                 { background: #FFF; }
+.button                                { display:inline-block; text-align:center; text-decoration: none; }
+.button:hover                          {  }
+
+/* use: icon and descriptor button combos. Use color styles for special colors (ie. save, cancel, update) */
+.buttonAction                          { color: #0077C1; background:none; border: none; cursor: pointer; padding: 5px 10px; margin: 0 2px; line-height:normal; }
+.buttonAction:hover                    { background: rgba(0,0,0,0.05); border-radius: 5px;  }
+.buttons_colorSelector button              { font-size: 17px; margin-right:3px; padding: 0; width: 20px; height: 20px; border-radius: 3px; overflow: hidden }
+.buttons_colorSelector button:hover        { transform: scale(1.1, 1.1); }
+.buttons_colorSelector button:active       { opacity: 0.5; }
+.buttons_colorSelector button.activeColor  { border: 2px solid black; margin-bottom:2px }
+	
+
+/*Colors (Subject to change)*/
+.clr_red                               { color:red     !important }
+.clr_green                             { color:#44CB7F !important }
+.clr_blue                              { color:#0077C1 !important; padding:1px; }
+.clr_blue50                            { color:#7FBBE0 !important }
+.clr_blue10                            { color:#E5F1F9 !important }
+.clr_orange                            { color:orange  !important }
+.clr_grey                              { color:#999999 !important }
+.clr_lightgrey                         { color:#CCCCCC !important }
+
+.clr_cyan                              { color:cyan !important}
+.clr_magenta                           { color:magenta !important}
+.clr_pink                              { color:hotpink !important}
+.clr_violet                            { color: violet !important}
+.clr_maroon                            { color:maroon !important}
+
+  
+
+
+body, html                           { background:#EFEFEF; margin: 0; padding: 0; font: 12px/12px arial, sans-serif;  height:100%; min-height: 300px; min-width: 960px }
+a                                    { text-decoration: none; color: #0077C1 }
+a:hover                              { color: #44CB7F}
+  
+h2,h3                                { color: #44CB7F; font-weight: normal; font-size: 18px; margin:0; padding: 0 }  
+
+button                               { cursor: pointer; border: none; background: none}
+input[type="checkbox"]               { cursor: pointer; height: 16px; width: 16px }
+select                               { cursor:pointer;width:125px;padding: 3px 6px;}
+
+::-webkit-input-placeholder          { color: #CCC; font-style: italic; font-size:12px; }
+:-ms-input-placeholder               { color: #CCC; font-style: italic; font-size:12px; }
+:-moz-placeholder                    { color: #CCC; font-style: italic; opacity:  1; font-size:12px; }
+::-moz-placeholder                   { color: #CCC; font-style: italic; opacity:  1; font-size:12px; }
+.placeholder_textarea                { color: #CCC !important; font-style: italic !important; font-size:12px; } 
+footer                               { flex: 0 0 40px; margin: 0; background-color: #4489b6; -webkit-box-shadow: inset 0px 10px 25px 0px rgba(0,0,0,0.25); -moz-box-shadow: inset 0px 10px 25px 0px rgba(0,0,0,0.25); box-shadow: inset 0px 10px 25px 0px rgba(0,0,0,0.25); webkit-border-radius: 0px 0px 5px 5px; -moz-border-radius: 0px 0px 5px 5px; border-radius: 0px 0px 5px 5px; }
+footer img                           { height:20px; float:right; margin-right: 20px; margin-top: 11px; top: 5px }
+
+.carousel {
+  position: absolute; 
+  
+}
+.carousel-control.left {
+    background-image: none;
+    color:#90CAF9;
+    z-index:1;   
+    left:-55px; 
+}
+
+ .carousel-control.right{
+    background-image: none;
+    color:#90CAF9;
+    z-index:1;   
+    right:-55px; 
+}
+.channel_name                          { color:#555; font-size : 11px;padding-left:24px; padding-top:4px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; max-width:260px; }
+.icon_tblChannel span:first-child      { position:absolute }
+.icon_tblButton                        { padding:0; color:#0077C1; vertical-align: middle }
+.button_tableActions button            { color: #0077C1; font-size: 16px; border: none; background: none; white-space: nowrap; padding:0}
+.button_tableActions button:hover      { color:black }
+
+/*Input Styles */
+.select_StylePlain                     { position: relative; display: inline-block; }
+.select_StylePlain select:hover        { color:black }
+.select_StylePlain select              { color: #666; outline: none; border: none; font-size: 12px;padding-right:10px;margin-top: -2px;}
+.select_StylePlain option              { color: #666; font-style: normal}
+.select_StylePlain select:invalid      { color: #CCC; font-style: italic }
+.select_arrow                          { background: #fff; bottom: 0; position: absolute; right: 0; top: 0;pointer-events: none; }
+.select_arrow:before                   { content: ''; position: absolute; top: 50%; right: 0; margin-top: -3px; border-top: 6px solid #0077C1; border-left: 4px solid transparent; border-right: 4px solid transparent;}
+
+/*Label disabled*/
+button[disabled] { 
+      pointer-events: none;
+    }
+
+.select_StylePlain select::-ms-expand {
+    display: none;
+    }
+
+.btn1 {
+     display: inline-block;
+     height: 18px; 
+     /*padding: 0 5px;*/ 
+     width: 125px; 
+     font-size: 12px; 
+     color: #666; 
+     cursor: pointer;
+     background: white;
+     margin-bottom: -5px;
+}
+.btn1:hover, li:hover{
+   color:black;
+}
+.caret {
+   position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -3px;
+    margin-right: 6px;
+    border-top: 6px solid;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+ul{
+ padding: 0 5px; 
+ width: 125px;    
+}
+li{
+    cursor:pointer;
+    height: 18px; 
+    padding: 0 5px; 
+    font-size: 12px; 
+    color: #666;
+}
+.dropdown-menu{
+    min-width: 125px;
+    margin:0;
+}
+
+.bubble-count { 
+    width:15px; 
+    height:9px; 
+    background: silver; 
+    display:inline-block;
+    text-align: center;
+    border-radius: 3px; 
+    color: white; 
+    font-weight: bold;
+    vertical-align: initial;
+    margin-top:3px;
+}
+
+.warning{
+    outline:1px solid red !important;
+}
+
+.no-label-border{
+    border:1px solid #666;
+    border-radius: 3px; 
+}
+/** All media queries  **/
+
+@media screen and (max-width: 1920px){
+  .modalBodyFullSize {
+        height: 560px;
+    }
+}
+@media screen and (max-width: 1600px){
+    .modalBodyFullSize {
+        height: 560px;
+    }
+}
+#personal-checkbox{
+    display:inline-block;
+    width: 16px;
+    vertical-align: sub;
+    margin-top: -1px;
+    margin-left:5px;
+}
+
+.select_StylePlain select:invalid {
+    color: #CCC;
+    font-style: italic;
+}
+
+.requiredSelection{
+    color: #CCC !important;
+    font-style: italic;
+}
+
+.disabledStyling select:hover{
+    color: #CCC !important;
+    cursor: default;
+}
+
+.nonEditMode{
+    cursor: default;
+}
+.nonEditMode:hover{
+    cursor: default;
+    color: #666 !important;
+}
+
+.hide_overflow{
+    -ms-overflow-style: none;
+}
+.show_overflow{
+    -ms-overflow-style: auto;
+}
+.dropdown-menu li:hover{
+  
+    background:#1E90FF  !important;
+    color: white !important;
+}
+
+select:disabled{
+    background: white;
+}
+
+textarea:focus,input:focus{
+    outline: none;
+     border:1px solid #1E90FF;
+     -webkit-box-shadow: 0px 0px 5px  #1E90FF;
+     box-shadow: 0px 0px 5px  #1E90FF;
+}
+select,input,textarea{
+     -webkit-box-shadow: none;
+     box-shadow: none;
+    -moz-box-shadow: none;
+}
+.followup_modalLeft select {
+    -webkit-appearance: none;
+    -moz-appearance: none !important;
+    padding-left:0px;
+    padding-top:0px;
+}
+
+.contentValue{
+     color: #777;
+     left:50%;
+   top:168px;
+   -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   position:absolute;
+    width:100%;
+    height:50%;
+    text-align: center; 
+    line-height: 15px;
+}
+.followup_tasks_icon1  { color: #f2f2f2; border-radius: 8px; text-align:center; font: 212px/1.5 arial, sans-serif;}
+
+.backgroundImageContainer {
+    width:100%;
+    height:100%;
+    position:relative;
+    top:-33px;
+    background-image: "\6e";
+    text-align: center;
+}
+.followup_modalEntryNotAllowed{
+     overflow:hidden;width:100%;height:234px;margin-top:20px;
+}
+.personal_status_icon   { vertical-align: middle}
+
+.followup_modal_content { display:flex; flex-direction: row; min-height:0}
+
+#commentBox , [id^="commentBox"]{ flex: 0 0 100px; width: auto; margin: 10px 0; resize:none}
+
+.noCommentTitle { font-size: 14px;}
+
+.noCommentSubTitle  { font-size: 13px;}
+.customtooltip {
+    position: relative;
+}
+.customtooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.customtooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent  transparent;
+}
+
+.customtooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.show_create_modal_true      {display : block;}
+.show_create_modal_false     {display : none;}
+.alignCenter                 {text-align: center;}
+
+.comment-box{
+    line-height: 18px !important;
+    color: #777;
+    white-space : pre-wrap;
+}
+
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+.notificationItem, .notificationItem label, .notificationItem input[type=checkbox] {
+    display: inline;    
+    width: 7%;
+    border:none;
+}
+.notificationItem input[type=checkbox] {
+    height:18px;
+}
+.notificationItem label,.notificationItem span{
+    vertical-align:super;
+}
+.notificationItem button{
+    padding-left: 0px;
+    height:18px;
+}
+
+.custom_notification_icon{
+    vertical-align:super !important;
+    border: none;
+}
+.custom_notification_text{
+    color:#777;
+    vertical-align:super !important;
+}
+.notificationItem input[type=checkbox]:hover,.notificationItem input[type=checkbox]:focus,.custom_notification_icon:focus{
+    border:none;
+}
+.reminder_label{
+    padding-top:5px !important;
+}
+
+.no_top_space{
+    top:0 !important;
+}
+
+#subjectNew{
+    height:17px !important;
+}
+.followup_modalRight textarea {
+    line-height:18px !important;
+}
+.followup_subject{
+    vertical-align : inherit;
+    height:16px;
+}
+.notification_row{
+    padding-top:0px !important;
+}
+
+.no_margin_top{
+    margin-top:0px !important;
+}
+label[for^=commentBox]
+{display:none;}
+
+
+label{margin: 0; padding: 0; font-size: 12px; flex: 0 0 100px; font-weight: normal; text-align: end;}
+
+.followupModalFooter{
+    width: 100%;
+    height: 20px;
+    background: black;
+    color: white;
+    padding: 4px 80px;
+    position: absolute;
+    text-align: center;
+    top: 664px;
+}
+
+@-moz-document url-prefix() {
+
+    @media screen and (max-width: 2561px) {
+        .comment-box {
+            width: 1404px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1921px) {
+        .comment-box {
+            width: 988px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1681px) {
+        .comment-box {
+            width: 820px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1601px) {
+        .comment-box {
+            width: 741px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1531px) {
+        .comment-box {
+            width: 672px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1441px) {
+        .comment-box {
+            width: 584px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1361px) {
+        .comment-box {
+            width: 504px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1281px) {
+        .comment-box {
+            width: 426px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 1025px) {
+        .comment-box {
+            width: 160px;
+            padding-right: 7px;
+        }
+    }
+
+    @media screen and (max-width: 801px) {
+        .comment-box {
+            width: 90px;
+            padding-right: 7px;
+        }
+    }
+}

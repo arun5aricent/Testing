@@ -1,0 +1,219 @@
+<div bsModal #associatedTaskModal="bs-modal" id="associatedTaskModal" class="modal" [config]="{backdrop: 'static', keyboard: false}">
+    <div class="modalHeader">
+        <div class="modalHeaderSide alignCenter"> </div>
+        <!-- When buttons are added on right side remove class no-margin-left -->
+        <div class="modalHeaderBody no-margin-left"><span class="uwf-{{associatedTaskIcon}}" title="{{taskForPopup?.ChannelName}}"></span><div class="modalHeaderTitle">{{associatedTaskCustomerBanner}}</div></div>
+        <!-- Use this when some buttons need to be added at right of header -->
+        <button class="modalHeaderButton " title="Back" (click)="closeAssociatedTaskModal()" [title]="UIParams?.Back"><span class="uwf-back"></span>{{UIParams?.Back}}</button>
+        <div class="modalHeaderSide"></div>
+    </div>
+    <div class="ihModalContainer shadowModal">
+        <div *ngIf="!isTaskCompleted" class="ihModalLeft">
+            <async-loader [isRunning]="isTaskDetailLoading"> </async-loader>
+            <h3>{{localization?.ContactDetailsHeader}}</h3>
+            <div class="ihModalDetails">
+                <dl *ngFor="let TaskDetail of selectedTaskDetails?.contactDetails"><dt title="{{TaskDetail?.key}}">{{TaskDetail?.key}}</dt><dd title="{{TaskDetail?.value}}">{{TaskDetail?.value}}</dd></dl>
+            </div>
+            <h3>{{localization?.InteractionDetailsHeader}}</h3>
+            <div class="ihModalDetails">
+                <dl *ngFor="let TaskDetail of selectedTaskDetails?.taskDetails"><dt title="{{TaskDetail?.key}}">{{TaskDetail?.key}}</dt><dd title="{{TaskDetail?.value}}">{{TaskDetail?.value}}</dd></dl>
+            </div>
+            <h4 title="{{selectedTaskComments?.key}}">{{selectedTaskComments?.key}}</h4>
+            <div class="ihModalComments"><p title="{{selectedTaskComments?.value}}">{{selectedTaskComments?.value}}</p></div>
+        </div>
+        <div *ngIf="isTaskCompleted" class="ihModalLeft">
+            <async-loader [isRunning]="isTaskDetailLoading"> </async-loader>
+            <h3>{{localization?.ContactDetailsHeader}}</h3>
+            <div class="ihModalDetails">
+                <dl *ngFor="let TaskDetail of selectedTaskDetails?.contactDetails"><dt title="{{TaskDetail?.key}}">{{TaskDetail?.key}}</dt><dd title="{{TaskDetail?.value}}">{{TaskDetail?.value}}</dd></dl>
+            </div>
+            <h3>{{localization?.InteractionDetailsHeader}}</h3>
+            <div class="ihModalDetails">
+                <dl *ngFor="let TaskDetail of selectedTaskDetails?.interactionDetails"><dt title="{{TaskDetail?.key}}">{{TaskDetail?.key}}</dt><dd title="{{TaskDetail?.value}}">{{TaskDetail?.value}}</dd></dl>
+            </div>
+            <h4 title="{{selectedTaskComments?.key}}">{{selectedTaskComments?.key}}</h4>
+            <div class="ihModalComments"><p title="{{selectedTaskComments?.value}}">{{selectedTaskComments?.value}}</p></div>
+        </div>
+        <div *ngIf="!isTaskCompleted" class="ihModalRight shadowInner" id="taskMediaSection">
+            <async-loader [isRunning]="isTaskMediaLoading"></async-loader>
+            <main class="ihModalMediaLink shadowMain" [hidden]="!popout_task_HtmlData">
+                <div class="mediaLinkHeader">
+                    <div class="mediaLinkIcon uwf-link"></div>
+                    {{localization?.MediaLink}}
+                </div>
+                <div class="mediaLinkBody" [innerHTML]='popout_task_HtmlData'></div>
+            </main>
+            <main *ngFor="let media of selectedTaskMedia" class="shadowMain">
+                <div *ngIf="media.mediaType==4" class="ihModalEmail">
+                    <header [innerHtml]="media.Subject"></header>
+                    <summary class="ihModalEmailSummary">
+                        <div class="summaryDiv"><strong>{{localization?.From}}:</strong> {{media.Sender}}<br></div>
+                        <div class="summaryDiv"><strong>{{localization?.To}}:</strong> {{media.Recipients}}<br></div>
+                        <div [hidden]="!media.CCRecipients" class="summaryDiv"><strong>Cc:</strong> {{media.CCRecipients}}<br></div>
+                        <div class="summaryDiv"><strong>{{localization?.Sent}}:</strong> {{media.Date | formatDate}}<br></div>
+                        <div [hidden]="media.AttachmentCount <= 0" class="incomingAttachments">
+                            <div><img class="img-attch" [src]="getPaperClipLink()" alt="attachments"></div>
+                            <div class="attachmentsContainer">
+                                <div [hidden]="media.AttachmentCount <= 0" *ngFor="let attachment of media.Attachments" class="attachment upload-label"><a class="savedAttachment" title="{{attachment.Key}}" target="_blank" href="{{urlencode(attachment.Value[0])}}">{{attachment.Key}}</a></div>
+                            </div>
+                        </div>
+                    </summary>
+                    <aside [hidden]="media.ConversationType !== 1" class="ihModalEmailAside">{{localization?.Transfer}}</aside>
+                    <article class="emailBody" [innerHtml]="media.Body | trustedHTML"></article>
+                </div>
+                <div *ngIf="media.mediaType==1" class="ihModalSMS">
+                    <summary>
+                        <strong>{{localization?.Agent}}:</strong> {{associatedTaskAgentName}}<br>
+                    </summary>
+                    <section [class]="getCSSClassForChat(line.SenderType)" *ngFor="let line of media.ChatLines">
+                        <figcaption>{{line.SenderName}}</figcaption>
+                        <time>{{line.formattedSent | date : 'MM/dd/yy h:mm a'}}</time>
+                        <article><div id="attachmentBody" [innerHtml]="line.Body | trustedHTML"></div></article>
+                    </section>
+                </div>
+                <div *ngIf="media.mediaType==2" class="ihModalVoice">
+                    <summary>
+                        {{media.TimeStampLabel}}
+                    </summary>
+                    <section>
+                        <article>
+                            <div class="iconLargeBox uwf-recording"></div>
+                        </article>
+                        <audio *ngIf="media.IsFromMediaSense===true" crossOrigin="anonymous" stereo2mono audio-context="parentobj.ac" preload controls id="audio_player" src="{{media.Url | trusted}}" type="video/mp4">
+                            {{localization?.BrowserNotSupportAudio}}.
+                        </audio>
+                        <a *ngIf="media.IsFromMediaSense===false" href="{{media.Url | trusted}}" target="_blank">
+                            <span class="iconText uwf-attachment"></span>
+                            {{localization?.AudioFile}}
+                        </a>
+                    </section>
+                </div>
+            </main>
+            <main [hidden]="!showTaskNoMediaContent()" class="shadowMain ihModalNoMedia">
+                <article class="shadowInnerGradient1">
+                    <div class="uwf-{{associatedTaskIcon}} noMediaIcon"></div>
+                    <div class="noMediaError"><div *ngIf="selectedTaskMediaError">{{selectedTaskMediaError}}</div><div *ngIf="selectedTaskMedia?.length <= 0 && selectedTaskMediaError ===''">{{localization?.NoMediaContentAvailable}}</div></div>
+                </article>
+            </main>
+        </div>
+        <div *ngIf="isTaskCompleted" class="ihModalRight shadowInner" id="interactionMediaSection">
+            <async-loader [isRunning]="isTaskMediaLoading"> </async-loader>
+            <main class="ihModalMediaLink shadowMain" [hidden]="!popout_task_HtmlData">
+                <div class="mediaLinkHeader">
+                    <div class="mediaLinkIcon uwf-link"></div>
+                    {{localization?.MediaLink}}
+                </div>
+                <div class="mediaLinkBody" [innerHTML]='popout_task_HtmlData'></div>
+            </main>
+            <main *ngFor="let media of selectedTaskMedia" class="shadowMain">
+                <div *ngIf="media.mediaType==4" class="ihModalEmail">
+                    <div>
+                      <span style="float:left" title="{{getEmailLabelName(media.mediaRelationType)}}"><em class="resendEmailTypeIcon {{getEmailTypeImage(media.mediaRelationType)}}"></em></span><header [innerHtml]="media.Subject"></header>
+                    </div>
+                    <summary class="ihModalEmailSummary">
+                        <div class="summaryDiv">
+                            <div class="emailSummaryField"><strong>{{localization?.From}}:</strong> {{media.Sender}}</div>
+         
+                            <br>
+                        </div>
+                        <div class="summaryDiv"><div class="emailSummaryField"><strong>{{localization?.To}}:</strong> {{media.Recipients}}</div><br></div>
+                        <div [hidden]="!media.CCRecipients" class="summaryDiv"><div class="emailSummaryField"><strong>Cc:</strong> {{media.CCRecipients}}</div><br></div>
+                        <div class="summaryDiv"><strong>{{localization?.Sent}}:</strong> {{media.Date | formatDate}}<br></div>
+                        <div [hidden]="media.AttachmentCount <= 0" class="incomingAttachments">
+                            <div><img class="img-attch" [src]="getPaperClipLink()" alt="attchments"></div>
+                            <div class="attachmentsContainer">
+                                <div [hidden]="media.AttachmentCount <= 0" *ngFor="let attachment of media.Attachments" class="attachment upload-label"><a class="savedAttachment" title="{{attachment.Key}}" target="_blank" href="{{urlencode(attachment.Value[0])}}">{{attachment.Key}}</a></div>
+                            </div>
+                        </div>
+                    </summary>
+                    <aside [hidden]="media.ConversationType !== 1" class="transfer">{{localization?.Transfer}}</aside>
+                    <article class="emailBody" [innerHtml]="media.Body | trustedHTML"></article>
+                    <div class="printEmail" id="{{media.ID}}">
+                        <div class="subject">{{media.Subject}} <aside *ngIf="media.ConversationType===1" class="transfer">{{localization?.Transfer}}</aside></div>
+                        <div class="printHeaders">
+                            <div class="header-row from">
+                                <div class="header-label">{{localization?.From}}:</div>
+                                <div class="header-value"> {{media.Sender}}</div>
+                            </div>
+                            <div class="header-row to">
+                                <div class="header-label">{{localization?.To}}:</div>
+                                <div class="header-value"> {{media.Recipients}}</div>
+                            </div>
+                            <div *ngIf="media.CCRecipients" class="header-row cc">
+                                <div class="header-label">Cc:</div>
+                                <div class="header-value"> {{media.CCRecipients}}</div>
+                            </div>
+                            <div class="header-row date">
+                                <div class="header-label">{{localization?.Sent}}:</div>
+                                <div class="header-value"> {{media.Date | formatDate}}</div>
+                            </div>
+                            <div *ngIf="media.AttachmentCount>0" class="header-row attachment">
+                                <div class="header-label">
+                                    <img class="img-attch" [src]="getPaperClipLink()" alt="attachments">
+                                </div>
+                                <div class="header-value">
+                                    <div *ngFor="let attachment of media.Attachments" class="attachmentLabelContainer">
+                                        <span class="attachmentLabel">{{attachment.Key}}</span><span class="attachmentSizeLabel">{{attachment.Value[1]}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div [innerHtml]="media.Body | trustedHTML" class="printContent"></div>
+                    </div>
+                </div>
+                <div *ngIf="media.mediaType==1" class="ihModalSMS">
+                    <summary>
+                        <strong>{{localization?.Agent}}:</strong> {{associatedTaskAgentName}}<br>
+                        <span *ngIf="media.ConversationType != 2" [hidden]="media.transcriptStatus == null"><br><strong>{{getTranscriptMessage(media.transcriptStatus,media.customerEmailAddress)}}</strong></span>
+                    </summary>
+                    <aside *ngIf="media.ConversationType === 1" class="ihModalChatAside">{{localization?.Transfer}}</aside>
+                    <aside *ngIf="media.ConversationType === 2" class="ihModalChatAside">{{localizationCommon?.Consult}}</aside>
+                    <section [class]="getCSSClassForChat(line.SenderType)" *ngFor="let line of media.ChatLines">
+                        <figcaption>{{line.SenderName}}</figcaption>
+                        <time>{{line.formattedSent | date : 'MM/dd/yy h:mm:ss a'}}</time>
+                        <article><div id="attachmentBody" [innerHtml]="line.Body | trustedHTML"></div></article>
+                    </section>
+                    <div class="printChat" id="{{media.ID}}">
+                        <div class="printInfoChat">
+                            <strong>{{localization?.Agent}}:</strong> {{associatedTaskAgentName}}
+                            <aside *ngIf="media.ConversationType === 1" class="transfer">{{localization?.Transfer}}</aside>
+                            <aside *ngIf="media.ConversationType === 2" class="consult">{{localizationCommon?.Consult}}</aside>
+                            <br>
+                            <span *ngIf="media.transcriptStatus != null"><br><strong>{{getTranscriptMessage(media.transcriptStatus,media.customerEmailAddress)}}</strong></span>
+                        </div>
+                        <div class="printBodyChat">
+                            <section ng-class="getCSSClassForChat(line.SenderType)" *ngFor="let line of media.ChatLines">
+                                <figcaption>{{line.SenderName}}</figcaption>
+                                <time>{{line.formattedSent | date : 'MM/dd/yy h:mm:ss a'}}</time>
+                                <article><div id="attachmentBody" [innerHtml]="line.Body | trustedHTML"></div></article>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="media.mediaType==2" class="ihModalVoice">
+                    <summary>
+                        {{media.TimeStampLabel}}
+                    </summary>
+                    <section>
+                        <article>
+                            <div class="iconLargeBox uwf-recording"></div>
+                        </article>
+                        <audio *ngIf="media.IsFromMediaSense===true" crossOrigin="anonymous" stereo2mono audio-context="parentobj.ac" preload controls id="audio_player" src="{{media.Url | trusted}}" type="video/mp4">
+                            {{localization?.BrowserNotSupportAudio}}
+                        </audio>
+                        <a *ngIf="media.IsFromMediaSense===false" href="{{media.Url | trusted}}" target="_blank">
+                            <span class="iconText uwf-attachment"></span>
+                            {{localization?.AudioFile}}
+                        </a>
+                    </section>
+                </div>
+            </main>
+            <main [hidden]="!showTaskNoMediaContent()" class="shadowMain ihModalNoMedia" style="height:100%">
+                <article class="shadowInnerGradient1">
+                    <div class="uwf-{{associatedTaskIcon}} noMediaIcon"></div>
+                    <div class="noMediaError"><div *ngIf="selectedTaskMediaError">{{selectedTaskMediaError}}</div><div *ngIf="selectedTaskMedia?.length <= 0 && selectedTaskMediaError ===''">{{localization?.NoMediaContentAvailable}}</div></div>
+                </article>
+            </main>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,392 @@
+<div bsModal #childModal="bs-modal" id="myModal" class="modal" role="dialog" [config]="{backdrop: 'static', keyboard: false}" (onShown)="modalShownCallbackHandler()" (window:resize)="setSelectTagWidth()">
+
+  <!-- == Modal Header -->
+  <div *ngIf="isNewFollowUp" [style.display]="isAssociatedTask?'none':'block'">
+    <div class="modalHeader">
+      <div class="modalHeaderSide"></div>
+      <div class="modalHeaderBody">
+        <span class="uwf-circle" title="{{UIParams[configurationData?.Status[2]?.Description]}}" [style.display]="insertFollowUp?.FollowUpStatus==configurationData?.Status[2]?.StatusID?'inline':'none'" aria-hidden="true"></span>
+        <span class="uwf-circle-i" title="{{UIParams[configurationData?.Status[1]?.Description]}}" [style.display]="insertFollowUp?.FollowUpStatus==configurationData?.Status[1]?.StatusID?'inline':'none'" aria-hidden="true"></span>
+        <span class="uwf-circle-o" title="{{UIParams[configurationData?.Status[0]?.Description]}}" [style.display]="insertFollowUp?.FollowUpStatus==configurationData?.Status[0]?.StatusID?'inline':'none'" aria-hidden="true"></span>
+        <h1 [title]="insertFollowUp?.Customer?.CustomerName">{{insertFollowUp?.Customer?.CustomerName}}</h1>
+          <h2 title="{{getFollowupStatus(insertFollowUp?.FollowUpStatus)}}" [style.top]="insertFollowUp?.Customer?.CustomerName?.length>0?'38px':'21px'">
+              {{getFollowupStatus(insertFollowUp?.FollowUpStatus)}}
+          </h2>
+      </div>
+      <button class="modalHeaderButton uwf-cancel clr_red" (click)="cancelFollowUp(0)" title="{{UIParams?.Close}}"><p>{{UIParams?.Close}}</p></button>
+      <div class="modalHeaderSide"></div>
+    </div>
+
+    <!-- == Modal Body (Full Size) -->
+    <div class="modalBodyFullSize">
+      <div class="followup_modal" alt="First slide">
+        <h1 title="{{UIParams?.Followup}}">{{UIParams?.Followup}}  <span [style.visibility]='showPersonalIcon(insertFollowUp)?"visible":"hidden"' class="uwf-user clr_lightgrey personal_status_icon" title="{{UIParams?.Personal}} {{UIParams?.Followup}}"></span></h1>
+        <dl>
+          <dt title="{{UIParams?.Subject}}">{{UIParams?.Subject}}</dt>
+          <dd [class.customtooltip]="showSubjectRequiredWarning" [title]="showSubjectRequiredWarning?'':''"><span *ngIf="showSubjectRequiredWarning" class="tooltiptext">{{UIParams?.SubjectValidation}}</span><input id="subjectNew" title="{{UIParams?.SubjectLine}}" [class.warning]="showSubjectRequiredWarning" (focus)="showSubjectRequiredWarning=false" [placeholder]="UIParams?.SubjectLine" type="text" [value]='insertFollowUp?.FollowUpSubject' (input)="onChange($event.target.value,'subject')"></dd>
+        </dl>
+        <div class="followup_modal_content">
+          <!-- MODAL Left -->
+          <div class="followup_modalLeft">
+            <dl>
+              <dt title="{{UIParams?.Type}}">{{UIParams?.Type}}</dt>
+              <dd [title]="showTypeRequiredWarning?'':getFollowupType(insertFollowUp?.FollowUpType)">
+                <div *ngIf="insertFollowUp" class="select_StylePlain selectType" [class.customtooltip]="showTypeRequiredWarning">
+                  <span *ngIf="showTypeRequiredWarning" class="tooltiptext">{{UIParams?.TypeValidation}}</span>
+                  <span class="select_arrow"></span>
+                  <select title="{{showTypeRequiredWarning?'':getFollowupType(insertFollowUp?.FollowUpType)}}" [class.warning]="showTypeRequiredWarning" [(ngModel)]="insertFollowUp.FollowUpType" [style.width]="selectTagWidth" required (focus)="showTypeRequiredWarning=false" [class.requiredSelection]="insertFollowUp?.FollowUpType== -1" (change)="onChange($event.target.value,'type')">
+                 <option [value]="-1">{{UIParams?.SelectField}}</option>
+                 <option *ngFor="let datum of editFollowUpUserTypes" [value]="datum.FollowUpTypeId">{{datum.Name}}</option>
+                </select>
+                </div>
+              </dd>
+            </dl>
+
+            <!-- Commented out Queued to dropdown-->
+            <!--<dl *ngIf="!insertFollowUp?.IsPersonal" >
+              <dt>{{UIParams?.Queue}}</dt>
+              <dd>
+                <div class="select_StylePlain" style="display:inline-block">
+                  <span class="select_arrow"></span>
+                  <select required [(ngModel)]="selectedSkill" (change)="onChangeSkill($event.target.value,'skill')">
+                    <option *ngFor="let datum of listOfSkills" [value]="datum">{{datum}}</option>
+                  </select>
+                </div>
+              </dd>
+            </dl>-->
+            <dl>
+              <dt title="{{UIParams?.DueDate}}">{{UIParams?.DueDate}}</dt>
+              <dd class="input-group" name="selectParent" [class.warning]="showDueDateInvalidWarning" [class.customtooltip]="showDueDateInvalidWarning" [title]="getFollowUpDueDateTitle(insertFollowUp?.FollowUpDueDate)" daterangepicker [options]="singlePicker" (applyDaterangepicker)="singleSelect($event)" (showDaterangepicker)="showHideDateRangePickerCalled($event)" (hideDaterangepicker)="showHideDateRangePickerCalled($event)">
+                <button class="uwf-calendar clr_blue"></button>
+                <span *ngIf="showDueDateInvalidWarning" class="tooltiptext">{{UIParams?.DueDateValidation}}</span>
+                <span name="daterange">
+                  {{dateConverter(insertFollowUp?.FollowUpDueDate)| amDateFormat: 'ddd MMM DD YYYY, hh:mm A'}}
+                </span>
+              </dd>
+            </dl>
+            <dl>
+              <dt title="{{UIParams?.Label}}">{{UIParams?.Label}}</dt>
+              <dd [title]="getSelectedLabel(selectedLabelKey)">
+                <div class="dropdown">
+                  <div [style.width]="selectTagWidth" class="btn1 dropdown-toggle dropdown" data-toggle="dropdown">
+                    <span class="bubble-count white" [class.no-label-border]="selectedLabelKey== 1" [style.background]="getLabelColor(selectedLabelKey)"></span> <span id="test" [class.requiredSelection]="selectedLabelKey == 1">{{getSelectedLabel(selectedLabelKey)}}</span>
+                    <span class="select_arrow"></span>
+                  </div>
+                  <ul [style.width]="selectTagWidth" class="dropdown-menu" role="menu">
+                    <li *ngFor="let datum of configurationData?.Labels; let i = index;" (click)="onLabelChange(datum?.LabelID)">
+                      <span class="bubble-count " [class.no-label-border]="datum?.LabelID == 1" [style.background]="datum.Description"></span> <span>  {{datum.LabelName}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </dd>
+            </dl>
+            <dl class="notification_row">
+              <dt title="{{UIParams?.Reminder}}" class="reminder_label">{{UIParams?.Reminder}}</dt>
+              <dd title="{{UIParams?.NotifyMe}}" id="followUpNotificationItems">
+                <div title="{{UIParams?.DueDateNotification}}" class="notificationItem">
+                  <input type="checkbox" name="eDueDate" value="eDueDate" id="eDueDate" [checked]="isFollowUpNotificationChecked('eDueDate')"><label for="eDueDate">{{UIParams?.DueDate | custommaxlength:notificationLabelLength}}</label>
+                </div>
+                <div title="{{UIParams?.CompleteNotification}}" class="notificationItem">
+                  <input type="checkbox" name="eCompleteDate" value="eCompleteDate" id="eCompleteDate" [checked]="isFollowUpNotificationChecked('eCompleteDate')"><label for="eCompleteDate">{{UIParams?.OnCompletion | custommaxlength:notificationLabelLength}}</label>
+                </div>
+                <div [class.customtooltip]="showCustomDateInvalidWarning" title="{{UIParams?.CustomDateNotification}}" class="notificationItem" daterangepicker [options]="customDateOptions" (applyDaterangepicker)="onFollowUpNotificationStatusChange('eCustomeDate',$event)" (showDaterangepicker)="showDateRangePickerCalled($event)" (hideDaterangepicker)="hideCustomDateRangePickerCalled($event)">
+                  <!-- Implemented XNOR logic to show or hide daterange picker on click of custom notification checkbox -->
+                  <input title="{{customRangeSelectedString}}" type="checkbox" name="eCustomeDate" click-stop-propagation [disablePropogation] ="isCustomNotificationChecked == isCustomDateRangePickerVisible" value="eCustomeDate" id="eCustomeDate" [checked]="isFollowUpNotificationChecked('eCustomeDate')" (click)="onCustomNotificationStatusChange('eCustomeDate',$event)">
+                  <span *ngIf="showCustomDateInvalidWarning" class="tooltiptext">{{UIParams?.CustomDateValidation}}</span>
+                  <button [class.warning]="showCustomDateInvalidWarning">                    
+                    <span class="uwf-calendar clr_blue custom_notification_icon"></span>
+                    <span class="custom_notification_text"> {{customRangeSelectedString | custommaxlength:notificationLabelLength}}</span>
+                  </button>
+                  <label for="eCustomeDate"></label>
+                </div>
+              </dd>
+            </dl>
+
+            <div id="modalContactHeader">
+              <h2 class="followup_associate_task">{{UIParams?.AssociateTask}}</h2><span class="button_tableActions"><button class="uwf-expand" (click)="showTaskDetails()" title="{{UIParams?.ShowTask}}"></button></span>
+            </div>
+            <div class="followup_modalContact" id="contactInformation">
+              <dl>
+                <dt [title]="UIParams?.AgentName">{{UIParams?.AgentName}}</dt>
+                <dd [title]="insertFollowUp?.Owner"><input title="{{insertFollowUp?.Owner}}" id="agentName" (focus)="scrollToContactInfo($event)" disabled [ngModel]="insertFollowUp?.Owner" [readonly]="true" (input)="onChange($event.target.value,'owner')"></dd>
+              </dl>
+              <dl>
+                <dt [title]="UIParams?.ContactAdd">{{UIParams?.ContactAdd}}</dt>
+                <dd [title]="insertFollowUp?.Customer?.CustomerSourceAddress"><input title="{{insertFollowUp?.Customer?.CustomerSourceAddress}}" id="contactAdd" (focus)="scrollToContactInfo($event)" disabled [ngModel]="insertFollowUp?.Customer?.CustomerSourceAddress" [readonly]="true" (input)="onChange($event.target.value,'contactAddress')"></dd>
+              </dl>
+              <dl>
+                <dt [title]="UIParams?.ContactName">{{UIParams?.ContactName}}</dt>
+                <dd [title]="insertFollowUp?.Customer?.CustomerName"><input id="contactName" title="{{insertFollowUp?.Customer?.CustomerName}}" (focus)="scrollToContactInfo($event)" disabled [ngModel]="insertFollowUp?.Customer?.CustomerName" [readonly]="true" (input)="onChange($event.target.value,'customerName')"></dd>
+              </dl>
+              <dl>
+                <dt [title]="UIParams?.ContactID">{{UIParams?.ContactID}}</dt>
+                <dd [title]="insertFollowUp?.Customer?.ContactId"><input id="contactId" title="{{insertFollowUp?.Customer?.ContactId}}" (focus)="scrollToContactInfo($event)" disabled [ngModel]="insertFollowUp?.Customer?.ContactId" [readonly]="true" (input)="onChange($event.target.value,'contactID')"></dd>
+              </dl>
+              <dl>
+                <dt [title]="UIParams?.Channel">{{UIParams?.Channel}}</dt>
+                <dd class="icon_tblChannel" [title]="associatedTaskDetails?.ChannelName">
+                  <span [class]="getIconPerChannel(associatedTaskDetails?.ChannelIcon)"></span>
+                  <div class="channel_name" id="channel" (focus)="scrollToContactInfo($event)">{{associatedTaskDetails?.ChannelName}}</div>
+                </dd>
+              </dl>
+              <dl>
+                <dt [title]="UIParams?.Accepted">{{UIParams?.Accepted}}</dt>
+                <dd [title]="dateConverter(associatedTaskDetails?.AcceptTime)| amDateFormat: 'MMM DD YYYY'"><input id="accept" title="{{dateConverter(associatedTaskDetails?.AcceptTime)| amDateFormat: 'MMM DD YYYY'}}" [value]="dateConverter(associatedTaskDetails?.AcceptTime)| amDateFormat: 'MMM DD YYYY'" disabled (focus)="scrollToContactInfo($event)" [readonly]="true"> </dd>
+              </dl>
+              <dl>
+                <dt [title]="UIParams?.ContReason">{{UIParams?.ContReason}}</dt>
+                <dd [title]="getContactReasonDetails(associatedTaskDetails?.ContactReason,associatedTaskDetails?.ContactReasonDetail)"><input id="reason" title="{{getContactReasonDetails(associatedTaskDetails?.ContactReason,associatedTaskDetails?.ContactReasonDetail)}}" [value]="getContactReasonDetails(associatedTaskDetails?.ContactReason,associatedTaskDetails?.ContactReasonDetail)" disabled (focus)="scrollToContactInfo($event)" [readonly]="true"></dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- MODAL Right -->
+          <div class="followup_modalRight">
+            <div (mouseover)="insertHover($event)" *ngIf="isInEditmode" class="upstream-assist-paste" style="right: 40px" data-gadget="FollowUp" [title]="articleTooltip" [hidden]="!showInsertButton" (click)="insertKnowledgeBaseArticle()">
+              <em class="upstream-assist-icon-paste fa fa-plus"></em>
+            </div>
+			<label for="commentBox">{{UIParams.CommentNote}}</label> 
+            <textarea #commentBox (mouseenter)="commentEnter($event)" (mouseleave)="commentLeave($event)" (focus)="commentEnter($event)" (blur)="commentLeave($event)" [class.placeholder_textarea]="followupcomment?.length == 0" id="commentBox" *ngIf="isInEditmode" [placeholder]="UIParams.CommentNote" [(ngModel)]="followupcomment" (input)="onChange($event.target.value,'comment')"></textarea>
+            <div class="followup_modalEntryBar"></div>
+            <div *ngIf="insertFollowUp?.Comment.length == 0" class="followup_modalEntryNotAllowed no_margin_top">
+              <div class="backgroundImageContainer uwf-commenting followup_tasks_icon1">
+                <span class="contentValue noCommentTitle">{{UIParams?.NoComment}}</span>
+                <span class="contentValue noCommentSubTitle"><br>{{UIParams?.NoCommentNote}}</span>
+              </div>
+            </div>
+            <div *ngIf="insertFollowUp?.Comment.length != 0" class="followup_modalEntry">
+              <section *ngFor="let comment of insertFollowUp?.Comment">
+                <span class="uwf-commenting followup_tasks_icon"></span>
+                <div>
+                  <header [title]="comment?.CommentUser">{{comment?.CommentUser}}</header> -
+                  <time [title]="commentDateConverter(comment?.CommentDate) | amDateFormat: 'ddd MMM DD YYYY, hh:mm A'">{{commentDateConverter(comment?.CommentDate) | amDateFormat: 'ddd MMM DD YYYY, hh:mm A'}}</time>
+                  <article innerHtml="{{comment?.CommentDesc | linky}}"></article>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <!-- MODAL Footer -->
+        <div class="modalFooterActionBar">
+          <div [style.visibility]="isInEditmode?'visible':'hidden'">
+            <button class="buttonAction uwf-cancel clr_red" (click)="cancelFollowUp(0)" [title]="UIParams?.Cancel"> {{UIParams?.Cancel}}</button>
+            <button class="buttonAction uwf-check clr_green" (click)='saveFollowUp()' [title]="saveAndUpdateButtonName"> {{saveAndUpdateButtonName}} </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Carousal-->
+
+  <carousel *ngIf="!isNewFollowUp" #carouselCmpt [isEditModeEnable]="isInEditmode" [slideIndex]="currentSlideIndex" (clickedNext)='onClickedNext($event)'
+    (clickedPrev)='onClickedPrev($event)' [style.display]="isAssociatedTask?'none':'block'">
+    <slide>
+      <!-- == Modal Header -->
+      <div class="modalHeader">
+        <div class="modalHeaderSide"></div>
+        <div class="modalHeaderBody">
+          <span class="uwf-circle" title="{{UIParams[configurationData?.Status[2]?.Description]}}" [style.display]="followupDetail?.FollowUpStatus==configurationData?.Status[2]?.StatusID?'inline':'none'" aria-hidden="true"></span>
+          <span class="uwf-circle-i" title="{{UIParams[configurationData?.Status[1]?.Description]}}" [style.display]="followupDetail?.FollowUpStatus==configurationData?.Status[1]?.StatusID?'inline':'none'" aria-hidden="true"></span>
+          <span class="uwf-circle-o" title="{{UIParams[configurationData?.Status[0]?.Description]}}" [style.display]="followupDetail?.FollowUpStatus==configurationData?.Status[0]?.StatusID?'inline':'none'" aria-hidden="true"></span>
+          <h1 [title]="customerName">{{customerName}}</h1>
+          <h2 *ngIf="isDraftFollowUp" title="{{getFollowupStatus(followupDetail?.FollowUpStatus)}}" [style.top]="customerName?.length>0?'38px':'21px'">
+            {{getFollowupStatus(followupDetail?.FollowUpStatus)}}
+          </h2>
+          <h2 *ngIf="!isDraftFollowUp" title="{{UIParams?.Created}} {{dateConverter(followupDetail?.FollowUpCreationDate)| amDateFormat: 'dddd MMMM DD YYYY, hh:mm A'}}" [style.top]="customerName?.length>0?'38px':'21px'">
+            {{getFollowupStatus(followupDetail?.FollowUpStatus)}} | {{UIParams?.LastModifiedDate}} {{dateConverter(followupDetail?.FollowUpLastModifiedDate)| amDateFormat: 'dddd MMMM DD YYYY, hh:mm A'}} |
+            {{followupDetail?.Comment?.length}} {{UIParams?.Notes}}
+          </h2>
+        </div>
+        <button *ngIf="!isInEditmode && followupDetail?.FollowUpStatus!=configurationData?.Status[2]?.StatusID" class="modalHeaderButton uwf-edit clr_blue50" (click)="setEditMode(true,followupItem)" [title]="UIParams?.Edit"><p>{{UIParams?.Edit}}</p></button>
+        <button class="modalHeaderButton uwf-cancel clr_red" (click)="hide()" [title]="UIParams?.Close"><p>{{UIParams?.Close}}</p></button>
+        <div class="modalHeaderSide"></div>
+      </div>
+
+      <!-- == Modal Body (Full Size) -->
+      <div class="modalBodyFullSize">
+        <async-loader [isRunning]="isRequesting"></async-loader>
+        <div class="followup_modal" alt="First slide">
+          <h1 title="{{UIParams?.Followup}}">{{UIParams?.Followup}} <span *ngIf="showPersonalIcon(followupDetail)" class="uwf-user clr_lightgrey personal_status_icon"  title="{{UIParams?.Personal}} {{UIParams?.Followup}}"></span></h1>
+          <label #btnCompFollowUp [style.display]="(isInEditmode && !isDraftFollowUp) ? 'block': 'none'" class="button_followupComplete" (click)="completeFollowUp()"><button class="uwf-check-circle buttonAction" title="{{UIParams?.Complete}} {{UIParams?.Followup}}"> {{UIParams?.Complete}} {{UIParams?.Followup}}</button></label>
+          <dl>
+            <dt title="{{UIParams?.Subject}}">{{UIParams?.Subject}}</dt>
+            <dd [class.customtooltip]="showSubjectRequiredWarning" [title]="showSubjectRequiredWarning?'':''">
+              <span *ngIf="showSubjectRequiredWarning" class="tooltiptext">{{UIParams?.SubjectValidation}}</span><textarea [class.warning]="showSubjectRequiredWarning" [class.placeholder_textarea]="followupSubject?.length == 0" class="followup_subject" [disabled]="!isInEditmode" (focus)="removeDefaultSubjectWarning()" style="resize:none; " [rows]="followupSubject?.length>231?2:1" [placeholder]="UIParams?.SubjectLine" [attr.title]="setSubjectTitle(followupSubject)" type="text" [class.nonEditMode]="!isInEditmode"
+                                                                                                                         (input)="onChange($event.target.value,'subject')" [(ngModel)]="followupSubject" [ngClass]="followupSubject?.length > 231 ? 'show_overflow': 'hide_overflow'"></textarea>
+            </dd>
+          </dl>
+          <div class="followup_modal_content">
+            <!-- MODAL Left -->
+            <div class="followup_modalLeft">
+              <dl>
+                <dt title="{{UIParams?.Type}}">{{UIParams?.Type}}</dt>
+                <dd [title]="showTypeRequiredWarning?'':getFollowupType(followUpType)">
+                  <div class="select_StylePlain" [class.customtooltip]="showTypeRequiredWarning">
+                    <span *ngIf="showTypeRequiredWarning" class="tooltiptext">{{UIParams?.TypeValidation}}</span>
+                    <span *ngIf="isInEditmode" class="select_arrow"></span>
+                    <select title="{{showTypeRequiredWarning?'':getFollowupType(followUpType)}}" [class.warning]="showTypeRequiredWarning" [style.width]="selectTagWidth" required name="staus" [class.requiredSelection]="followUpType== -1" [class.nonEditMode]="!isInEditmode" [(ngModel)]="followUpType" [disabled]="!isInEditmode" (change)="onChange($event.target.value,'type')">
+                      <option *ngFor="let datum of editFollowUpUserTypes" [value]="datum.FollowUpTypeId">{{datum.Name}}</option>
+                    </select>
+                  </div>
+                </dd>
+              </dl>
+              <!-- Commented out Queued to dropdown-->
+              <!--<dl *ngIf="!followupDetail?.IsPersonal" >
+                <dt>{{UIParams?.Queue}}</dt>
+                <dd>
+                  <div class="select_StylePlain"  [class.disabledStyling]="followupDetail?.IsQueued" style="display:inline-block">
+                    <span class="select_arrow"></span>
+                    <select [disabled]="!isInEditmode || followupDetail?.IsQueued"
+                    [class.nonEditMode]="!isInEditmode" [(ngModel)]="selectedSkill" (change)="onChangeSkill($event.target.value,'skill')"
+                    [style.color]="followupDetail?.IsQueued?'#CCC':'#666'">
+                     <option *ngFor="let datum of listOfSkills" [value]="datum">{{datum}}</option>
+                    </select>
+                  </div>
+                </dd>
+              </dl>-->
+              <dl>
+                <dt title="{{UIParams?.DueDate}}">{{UIParams?.DueDate}}</dt>
+                <dd class="input-group" name="selectParent" [title]="getFollowUpDueDateTitle(followupDueDate)" [class.warning]="showDueDateInvalidWarning" [class.customtooltip]="showDueDateInvalidWarning" *ngIf="isInEditmode" daterangepicker [options]="singlePicker" (applyDaterangepicker)="singleSelect($event)" (showDaterangepicker)="showHideDateRangePickerCalled($event)" (hideDaterangepicker)="showHideDateRangePickerCalled($event)"> 
+                  <button class="uwf-calendar clr_blue"></button>
+                  <span *ngIf="showDueDateInvalidWarning" class="tooltiptext">{{UIParams?.DueDateValidation}}</span>
+                  <span name="daterange">
+                    {{dateConverter(followupDueDate)| amDateFormat: 'ddd MMM DD YYYY, hh:mm A'}}
+                  </span>
+                </dd>
+                <dd name="selectParent" *ngIf="!isInEditmode" [title]="getFollowUpDueDateTitle(followupDueDate)">
+                  <button class="uwf-calendar clr_blue"></button> {{dateConverter(followupDueDate)| amDateFormat: 'ddd MMM DD YYYY, hh:mm A'}}
+                </dd>
+              </dl>
+              <dl>
+                <dt title="{{UIParams?.Label}}">{{UIParams?.Label}}</dt>
+                <dd class="buttons_colorSelector" [title]="getSelectedLabel(selectedLabelKey)">
+                  <div class="dropdown">
+                    <div [style.width]="selectTagWidth" class="btn1 dropdown-toggle dropdown" data-toggle="dropdown" [class.nonEditMode]="!isInEditmode">
+                      <span class="bubble-count" [class.no-label-border]="selectedLabelKey== 1" [style.background]="getLabelColor(selectedLabelKey)"></span> <span id="test" [class.requiredSelection]="selectedLabelKey == 1">{{getSelectedLabel(selectedLabelKey)}}</span>
+                      <span *ngIf="isInEditmode" class="select_arrow"></span>
+                    </div>
+                    <ng-container *ngIf="isInEditmode">
+                      <ul [style.width]="selectTagWidth" class="dropdown-menu" role="menu">
+                        <li *ngFor="let datum of configurationData?.Labels ; let i = index;" (click)="onLabelChange(datum?.LabelID)">
+                          <span class="bubble-count " [class.no-label-border]="datum?.LabelID == 1" [style.background]="datum.Description"></span> <span>  {{datum.LabelName}}</span>
+                        </li>
+                      </ul>
+                    </ng-container>
+                  </div>
+                </dd>
+              </dl>
+              <dl class="notification_row" *ngIf="userId == followupDetail?.UserID">
+                <dt title="{{UIParams?.Reminder}}" class="reminder_label">{{UIParams?.Reminder}}</dt>
+                <dd title="{{UIParams?.NotifyMe}}" id="followUpNotificationItems">
+                  <div title="{{UIParams?.DueDateNotification}}" class="notificationItem">
+                    <input type="checkbox" name="eDueDate" value="eDueDate" id="eDueDate" [disabled]="isDueDateNotificationAllowed()" [checked]="isFollowUpNotificationChecked('eDueDate')" (change)="onFollowUpNotificationStatusChange('eDueDate',$event)"><label for="eDueDate">{{UIParams?.DueDate | custommaxlength:notificationLabelLength}}</label>
+                  </div>
+                  <div title="{{UIParams?.CompleteNotification}}" class="notificationItem">
+                    <input type="checkbox" name="eCompleteDate" value="eCompleteDate" id="eCompleteDate" [disabled]="!isInEditmode" [checked]="isFollowUpNotificationChecked('eCompleteDate')" (change)="onFollowUpNotificationStatusChange('eCompleteDate',$event)"><label for="eCompleteDate">{{UIParams?.OnCompletion | custommaxlength:notificationLabelLength}}</label>
+                  </div>
+                  <div *ngIf="isInEditmode" [class.customtooltip]="showCustomDateInvalidWarning" title="{{UIParams?.CustomDateNotification}}" class="notificationItem" daterangepicker [options]="customDateOptions" (applyDaterangepicker)="onFollowUpNotificationStatusChange('eCustomeDate',$event)" (showDaterangepicker)="showDateRangePickerCalled($event)" (hideDaterangepicker)="hideCustomDateRangePickerCalled($event)">
+                    <!-- Implemented XNOR logic to show or hide daterange picker on click of custom notification checkbox -->
+                    <input title="{{customRangeSelectedString}}" type="checkbox" name="eCustomeDate" click-stop-propagation [disablePropogation]="isCustomNotificationChecked == isCustomDateRangePickerVisible" value="eCustomeDate" id="eCustomeDate" [disabled]="!isInEditmode" [checked]="isFollowUpNotificationChecked('eCustomeDate')" (click)="onCustomNotificationStatusChange('eCustomeDate',$event)">
+                    <span *ngIf="showCustomDateInvalidWarning" class="tooltiptext">{{UIParams?.CustomDateValidation}}</span>
+                    <button [class.warning]="showCustomDateInvalidWarning"  [disabled]="!isInEditmode">                     
+                      <span class="uwf-calendar clr_blue custom_notification_icon"></span>
+                      <span class="custom_notification_text"> {{customRangeSelectedString | custommaxlength:notificationLabelLength}}</span>
+                    </button>
+                    <label for="eCustomeDate"></label>
+                  </div>
+                    <div *ngIf="!isInEditmode" [class.customtooltip]="showCustomDateInvalidWarning" title="{{UIParams?.CustomDateNotification}}" class="notificationItem">
+                        <!-- Implemented XNOR logic to show or hide daterange picker on click of custom notification checkbox -->
+                        <input title="{{customRangeSelectedString}}" type="checkbox" name="eCustomeDate" click-stop-propagation [disablePropogation]="isCustomNotificationChecked == isCustomDateRangePickerVisible" value="eCustomeDate" id="eCustomeDate" [disabled]="!isInEditmode" [checked]="isFollowUpNotificationChecked('eCustomeDate')" (click)="onCustomNotificationStatusChange('eCustomeDate',$event)">
+                        <span *ngIf="showCustomDateInvalidWarning" class="tooltiptext">{{UIParams?.CustomDateValidation}}</span>
+                        <button [class.warning]="showCustomDateInvalidWarning" [disabled]="!isInEditmode">
+                            <span class="uwf-calendar clr_blue custom_notification_icon"></span>
+                            <span class="custom_notification_text"> {{customRangeSelectedString | custommaxlength:notificationLabelLength}}</span>
+                        </button>
+                        <label for="eCustomeDate"></label>
+                    </div>
+                </dd>
+              </dl>
+
+              <div id="modalContactHeader">
+                <h2 class="followup_associate_task">{{UIParams?.AssociateTask}}</h2><span class="button_tableActions"><button class="uwf-expand" (click)="showTaskDetails()" title="{{UIParams?.ShowTask}}"></button></span>
+              </div>
+              <div class="followup_modalContact" [class.rearrangeHeight]="userId != followupDetail?.UserID" id="contactInformationCarousel">
+
+                <dl>
+                    <dt [title]="UIParams?.AgentName">{{UIParams?.AgentName}}</dt>
+                    <dd [title]="agentName"><input id="agentNameCarousel" title="{{agentName}}" disabled (focus)="scrollToContactInfo($event)" [readonly]="true" [(ngModel)]="agentName"></dd>
+                </dl>
+                <dl>
+                    <dt [title]="UIParams?.ContactAdd">{{UIParams?.ContactAdd}}</dt>
+                    <dd [title]="contactAdress"><input id="contactAddCarousel" title="{{contactAdress}}" disabled (focus)="scrollToContactInfo($event)" [readonly]="true" [(ngModel)]="contactAdress"></dd>
+                </dl>
+                <dl>
+                    <dt [title]="UIParams?.ContactName">{{UIParams?.ContactName}}</dt>
+                    <dd [title]="customerName"><input id="contactNameCarousel" title="{{customerName}}" disabled (focus)="scrollToContactInfo($event)" [readonly]="true" [(ngModel)]="customerName"></dd>
+                </dl>
+                <dl>
+                    <dt [title]="UIParams?.ContactID">{{UIParams?.ContactID}}</dt>
+                    <dd [title]="contactId"><input id="contactIdCarousel" title="{{contactId}}" disabled (focus)="scrollToContactInfo($event)" [readonly]="true" [(ngModel)]="contactId"></dd>
+                </dl>
+                <dl>
+                  <dt [title]="UIParams?.Channel">{{UIParams?.Channel}}</dt>
+                  <dd class="icon_tblChannel" [title]="associatedTaskDetails?.ChannelName">
+                    <span [class] = "getIconPerChannel(associatedTaskDetails?.ChannelIcon)"></span>
+                    <div class="channel_name" id="channelCarousel" disabled (focus)="scrollToContactInfo($event)">{{associatedTaskDetails?.ChannelName}}</div>
+                  </dd>
+                </dl>
+
+                <dl>
+                  <dt [title]="UIParams?.Accepted">{{UIParams?.Accepted}}</dt>
+                  <dd [title]="dateConverter(associatedTaskDetails?.AcceptTime)| amDateFormat: 'MMM DD YYYY'"><input id="acceptCarousel" title="{{dateConverter(associatedTaskDetails?.AcceptTime)| amDateFormat: 'MMM DD YYYY'}}" [value]="dateConverter(associatedTaskDetails?.AcceptTime)| amDateFormat: 'MMM DD YYYY'" disabled (focus)="scrollToContactInfo($event)" [readonly]="true"> </dd>
+                </dl>
+                <dl>
+                  <dt [title]="UIParams?.ContReason">{{UIParams?.ContReason}}</dt>
+                  <dd [title]="getContactReasonDetails(associatedTaskDetails?.ContactReason,associatedTaskDetails?.ContactReasonDetail)"><input id="reasonCarousel" title="{{getContactReasonDetails(associatedTaskDetails?.ContactReason,associatedTaskDetails?.ContactReasonDetail)}}" [value]="getContactReasonDetails(associatedTaskDetails?.ContactReason,associatedTaskDetails?.ContactReasonDetail)" disabled (focus)="scrollToContactInfo($event)" [readonly]="true"></dd>
+                </dl>
+              </div>
+            </div>
+
+            <!-- MODAL Right -->
+            <div class="followup_modalRight">
+              <div (mouseover)="insertHover($event)" *ngIf="isInEditmode" class="upstream-assist-paste" data-gadget="FollowUp" [title]="articleTooltip" [hidden]="!showInsertButton" (click)="insertKnowledgeBaseArticle()">
+                <em class="upstream-assist-icon-paste fa fa-plus"></em>
+              </div>
+			  <label for="commentBoxCarousel">{{UIParams.CommentNote}}</label>
+              <textarea #commentBox (mouseenter)="commentEnter($event)" (mouseleave)="commentLeave($event)" (focus)="commentEnter($event)" (blur)="commentLeave($event)" [class.placeholder_textarea]="followupcomment?.length == 0" id="commentBoxCarousel" customAutofocus *ngIf="isInEditmode" [placeholder]="UIParams?.CommentNote" [(ngModel)]="followupcomment" (input)="onChange($event.target.value,'comment')"></textarea>
+              <div *ngIf="isInEditmode && !isDraftFollowUp" class="followup_modalAddEntryBar"><button class="uwf-check buttonAction clr_green" [disabled]="(followupcomment?.length==0)||(followupcomment?.trim().length==0)" (click)=saveComment() title="{{UIParams?.SaveAdd}}"> {{UIParams?.SaveAdd}}</button></div>
+              <div *ngIf="followupDetail?.Comment.length==0 && followupDetail?.FollowUpStatus!=configurationData?.Status[2]?.StatusID && !isInEditmode" class="followup_modalEntryNotAllowed">
+                <div class="backgroundImageContainer uwf-commenting followup_tasks_icon1 no_top_space">
+                  <span class="contentValue noCommentTitle">{{UIParams?.NoComment}}</span>
+                  <span *ngIf="isInEditmode" class="contentValue noCommentSubTitle"><br>{{UIParams?.NoCommentNote}}</span>
+                </div>
+              </div>
+              <div *ngIf="followupDetail?.Comment.length != 0" class="followup_modalEntry">
+                <section *ngFor="let comment of followupDetail?.Comment">
+                  <span class="uwf-commenting followup_tasks_icon"></span>
+                  <div>
+                    <header>{{comment?.CommentUser}}</header> -
+                    <time>{{customDateConverter(comment?.CommentDate) | commentDateFormat}}</time>
+                    <article class="comment-box" innerHtml="{{comment?.CommentDesc | linky}}"></article>
+                  </div>
+                </section>
+              </div>
+
+            </div>
+          </div>
+          <!-- MODAL Footer -->
+          <div class="modalFooterActionBar">
+            <div #modalFooterButtons [style.display]="isInEditmode?'block':'none'">
+              <button class="buttonAction uwf-cancel clr_red" (click)="cancelFollowUp(1)" [title]="UIParams?.Cancel"> {{UIParams?.Cancel}}</button>
+              <button [disabled]="btnToggleSave()" class="buttonAction uwf-check clr_green" (click)='saveFollowUp()' [title]="saveAndUpdateButtonName"> {{saveAndUpdateButtonName}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- == Modal Footer -->
+        <div class="followupModalFooter">{{modalFooterMessage}}</div>
+    </slide>
+  </carousel>
+</div>
+<confirmation-box #confirmationModal [UIParams]="UIParams" (confirmQueueTaskNotify)="confirmQueueTask($event)" (hideModalNotify)="hide()"> </confirmation-box>
+<associatedTask #associatedTaskModal [UIParams]="UIParams" (hideAssociatedTaskModalNotify)="closeAssociatedTaskModal()" (fetchMediaDetialNotify)="onFetchMediaDetialNotify($event)"></associatedTask>

@@ -1,0 +1,250 @@
+/* dashboard infobar CSS */
+    .infobar_notification{
+        position:absolute;
+        color: #FFF;
+        font-size: 10px;
+        line-height: 55px;
+        left: 25px;
+        margin-top: 7px;
+    }
+    .infobar_filters{
+         position:absolute; 
+         right: 10px; 
+         font-size: 10px; 
+         color: #FFF; 
+         margin-top: 10px;
+         margin-left: -30px;
+        }
+    .infobar_filters select, 
+    .infobar_filters input { 
+        height: 20px; 
+        padding: 0 5px; 
+        width: 125px; 
+        font-size: 11px; 
+        color: #555; 
+        border: 1px solid #999; 
+        box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.35); 
+        vertical-align: inherit;
+    }
+    .infobar_notification>div{
+        display:inline-block;
+    }
+    .infobar_filters> div {
+         display:inline-block;
+         margin-left: 15px; 
+    }
+    .infobar_notification>div label,.infobar_filters >div label
+    { 
+        display:block; 
+        max-width: 100%;
+        margin-bottom: 1px;
+        font-weight: normal;
+        font-size: 11px; 
+        line-height: 12px;
+        color: #FFF; 
+
+    }
+    .infobar_filters a 
+    { 
+        vertical-align: middle 
+    }
+
+
+
+.button_filterBarHamburger {
+    color: white; 
+    background: #75B0C7;
+    font-size: 12px;
+    margin-left: -15px;
+    vertical-align: middle;
+}
+
+
+/** media queries for header css **/
+@media screen and (max-width: 959px){
+    .infobar_filters select, 
+    .infobar_filters input { 
+        width: 100%;
+    }
+    .infobar_toggle{
+        width:100%;
+    }
+}
+
+
+/** color picker view CSS **/
+option.red { background: #EE1C24; }
+option.yellow { background: #FFF200; }
+option.green { background: #00A651; }
+option.indigo { background: #2E3192; }
+option.deeppink { background: #ED008C; }
+option.orange { background: #F78E56; }
+option.lightBlue { background: #7ACDC8; }
+option.white { background: #FFFFFF; }
+
+.btn1 {
+     display: inline-block;
+     height: 20px; 
+     padding: 0 5px; 
+     width: 118px; 
+     font-size: 11px; 
+     color: #555; 
+     border: 1px solid #999; 
+     background: white;
+     box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.35); 
+     margin-bottom: -5px;
+}
+
+.caret {
+   position: absolute;
+    top: 46%;
+    right: 1px;
+    margin-top: -2px;
+    color: #555;
+    margin-right: 6px;
+    border-top: 6px solid;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    pointer-events: none;
+}
+ul{
+ padding: 0 5px; 
+ width: 125px;    
+}
+li{
+    cursor:pointer;
+    height: 18px; 
+    padding: 0 5px; 
+    font-size: 11px; 
+    color: #999;
+    line-height: 15px;
+}
+.dropdown-menu{
+    min-width: 125px;
+    margin:0;
+}
+
+.bubble-count { 
+    width:15px; 
+    height:9px; 
+    background: silver; 
+    display:inline-block;
+    text-align: center;
+    border-radius: 3px; 
+    color: white; 
+    font-weight: bold;
+    vertical-align: initial;
+    margin-top:3px;
+}
+red { background: #EE1C24; }
+yellow { background: #FFF200; }
+green { background: #00A651; }
+indigo { background: #2E3192; }
+deeppink { background: #ED008C; }
+orange { background: #F78E56; }
+lightBlue { background: #7ACDC8; }
+white { background: #FFFFFF; }
+
+.humb-dropdown-menu-pos{
+    width: 162px; 
+    left: 16px;
+    font-size:13px; 
+    top:38px;
+    color: #999;
+}
+.humb-dropdown-menu-itemstyle{
+    border-top:1px 
+    double gray; 
+    padding:10px;
+    height: 30px;
+    width: 151px; 
+    font-size:11px;
+    border-top:.5px double #D3D3D3;
+    padding:7px;
+    color: #4489B2;
+}
+.toggleIcon{
+padding-bottom:12px;width:25px;height:2px;
+}
+.fa{
+margin-right: 7px;
+color: #4489B2;
+}
+
+
+.button_filterBarHamburger:hover       { color:black;  text-shadow:1px 1px 1px rgba(0,0,0,0.3); }
+.no-label-border{
+    border:1px solid #666;
+    border-radius: 3px; 
+}
+
+.negativeMargin{
+    margin-left: -14px;
+}
+
+.dropdown-menu li:hover{
+  
+    background:#1E90FF  !important;
+    color: white !important;
+}
+.dropdown-menu i:hover{
+     color: white !important;
+}
+
+.infobar_filters select::-ms-expand {
+    visibility: hidden;
+}
+
+.infobar_filters select {
+    /*-webkit-appearance: none;
+    -moz-appearance: none; */
+}
+
+.select_StylePlain                     { position: relative; display: inline-block; }
+.select_StylePlain select              {height: 20px; 
+     padding: 0 5px; 
+     width: 118px; 
+     font-size: 11px; 
+     color: #555; 
+     border: 1px solid #999; 
+     background: white;
+     box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.35); 
+     margin-bottom: -5px;
+     vertical-align: inherit;
+}
+.select_StylePlain option              { color: #666; font-style: normal}
+.select_StylePlain select:invalid      { color: #CCC; font-style: italic }
+
+select::-ms-value   { background-color: #fafafa; color: #555;  }
+
+.dropdown_arrow{
+    top:55%;
+    pointer-events:none;
+}
+
+#dateRangeValue {  width: 165px; padding:0px 10px;padding-right:16px; cursor:pointer;background-color:white; }
+
+.default_label_style {
+     vertical-align: sub;
+     vertical-align:-moz-middle-with-baseline; 
+     vertical-align: -webkit-baseline-middle;
+}
+
+
+label{
+    line-height: normal;
+}
+
+
+@-moz-document url-prefix() {
+ .infobar_filters select {
+    -moz-appearance: none !important;
+    text-indent: 0.01px;
+    text-overflow: "";
+    width:130px !important;
+  }
+}
+
+.label_filter{
+    vertical-align:top;
+}

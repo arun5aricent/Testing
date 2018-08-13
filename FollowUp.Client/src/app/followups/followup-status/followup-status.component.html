@@ -1,0 +1,7 @@
+<div class="icons_tblStatus">
+    <em class="uwf-circle"  [title]="UIParams[configurationData?.Status[2].Description]" [style.display]="datum?.FollowUpStatus==configurationData?.Status[2].StatusID?'inline':'none'" aria-hidden="true"></em>
+    <em class="uwf-circle-i" [title]="UIParams[configurationData?.Status[1].Description]" [style.display]="datum?.FollowUpStatus==configurationData?.Status[1].StatusID?'inline':'none'" aria-hidden="true"></em>
+    <em class="uwf-circle-o" [title]="UIParams[configurationData?.Status[0].Description]" [style.display]="datum?.FollowUpStatus==configurationData?.Status[0].StatusID?'inline':'none'" aria-hidden="true"></em>
+    <div class="bubble-count" [title]="getSelectedLabel()" [style.background]="getSelectedLabelColor()"></div>
+    
+</div>

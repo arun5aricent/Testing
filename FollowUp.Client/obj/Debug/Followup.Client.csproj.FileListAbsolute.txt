@@ -1,0 +1,5 @@
+C:\git\UWF\UpstreamWorks.FollowUp\Followup.Client\bin\Debug\Followup.Client.dll
+C:\git\UWF\UpstreamWorks.FollowUp\Followup.Client\bin\Debug\Followup.Client.pdb
+C:\git\UWF\UpstreamWorks.FollowUp\Followup.Client\obj\Debug\Followup.Client.csproj.CoreCompileInputs.cache
+C:\git\UWF\UpstreamWorks.FollowUp\Followup.Client\obj\Debug\Followup.Client.dll
+C:\git\UWF\UpstreamWorks.FollowUp\Followup.Client\obj\Debug\Followup.Client.pdb

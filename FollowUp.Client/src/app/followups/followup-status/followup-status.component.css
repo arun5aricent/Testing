@@ -1,0 +1,45 @@
+
+
+/* TEMPLATE - Icons */
+.icon_tblChannel                       { font-size: 15px; color:black }
+.icon_tblButton                        { padding:0; color:#0077C1; vertical-align: middle }
+.icon_tblButton:hover                  { color:black }
+.icon_tblHeader                        { font-size: 12px; margin-top:3px }
+.icon_marquee						               { font-size: 20px; }
+
+.icons_tblStatus em                     { font-size: 13px; display:inline-block; padding-top: 2px; margin-right: 2px; width: 16px; text-align: center; }
+
+.bubble-count                          { width:16px; height:9px; background: silver; display:inline-block;text-align: center; border-radius: 3px; color: white; 
+                                                font-weight: bold; font-size: 10px; vertical-align:middle; margin-top: -8px}
+
+
+/* TEMPLATE - Colors (Subject to change) - THIS WOULD BE BETTER using SASS*/
+.clr_red                               { color:red     !important }
+.clr_green                             { color:#44CB7F !important }
+.clr_blue                              { color:#0077C1 !important }
+.clr_blue50                            { color:#7FBBE0 !important }
+.clr_blue10                            { color:#E5F1F9 !important }
+.clr_orange                            { color:orange  !important }
+.clr_grey                              { color:#999999 !important }
+.clr_lightgrey                         { color:#CCCCCC !important }
+
+.clr_cyan                              { color:cyan !important}
+.clr_magenta                           { color:magenta !important}
+.clr_pink                              { color:hotpink !important}
+.clr_violet                            { color: violet !important}
+.clr_maroon                            { color:maroon !important}
+
+.bg_red                               { background:red     !important }
+.bg_green                             { background:#44CB7F !important }
+.bg_blue                              { background:#0077C1 !important }
+.bg_blue50                            { background:#7FBBE0 !important }
+.bg_blue10                            { background:#E5F1F9 !important }
+.bg_orange                            { background:orange  !important }
+.bg_grey                              { background:#999999 !important }
+.bg_lightgrey                         { background:#CCCCCC !important }
+
+.bg_cyan                              { background:cyan !important}
+.bg_magenta                           { background:magenta !important}
+.bg_pink                              { background:hotpink !important}
+.bg_violet                            { background: violet !important}
+.bg_maroon                            { background:maroon !important}

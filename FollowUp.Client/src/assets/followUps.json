@@ -1,0 +1,847 @@
+{
+TotalRecords: 403,
+FollowUpList: [
+{
+FollowUpID: "caba8960-b5a1-4aaf-bf12-088f8ea12344",
+FollowUpStatus: "InProgress",
+FollowUpType: "PreSales",
+FollowUpSubject: "issue with mobile",
+FollowUpDueDate: "2017-05-30T05:22:17.453",
+FollowUpLastModifiedDate: "2017-05-30T10:53:48.307",
+FollowUpCreationDate: "2017-05-30T05:22:17.453",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Atkins",
+FollowUpLabel: "#7ACDC8",
+FollowUpChannel: "Email",
+TotalComment: 4,
+CustomerName: "Fredil Erickson",
+Comment: [
+{
+CommentID: "14b80377-2a4c-45e6-8a7b-4708e04f1f2a",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:17.453",
+CommentUser: "Agent1"
+},
+{
+CommentID: "34fe8df7-0173-41c2-a0f3-2f1a2b51d97f",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:17.453",
+CommentUser: "Agent1"
+},
+{
+CommentID: "965cfd5e-a3c6-48be-a308-c8176d14b85f",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:17.453",
+CommentUser: "Agent1"
+},
+{
+CommentID: "b54ac9bc-73d4-419e-8c09-d699eb548811",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:17.453",
+CommentUser: "Agent1"
+}
+],
+ContactID: "518160",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "68c6a2a9-33db-435f-b617-20a76645044a",
+FollowUpStatus: "Complete",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with number",
+FollowUpDueDate: "2017-05-30T05:22:16.887",
+FollowUpLastModifiedDate: "2017-05-30T10:53:47.92",
+FollowUpCreationDate: "2017-05-30T05:22:16.887",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Margene",
+FollowUpLabel: "#FFF200",
+FollowUpChannel: "Phone",
+TotalComment: 4,
+CustomerName: "Barbara Jacobs",
+Comment: [
+{
+CommentID: "53a71d08-1a96-4aa4-b402-ddd3035631c9",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:16.887",
+CommentUser: "Agent2"
+},
+{
+CommentID: "675c7cad-cd18-4e4b-a08e-c864e8e9ac0c",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:16.887",
+CommentUser: "Agent2"
+},
+{
+CommentID: "28a95579-a535-485d-8657-606084131838",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:16.887",
+CommentUser: "Agent2"
+},
+{
+CommentID: "fb199ce2-22fc-466f-89fa-0ae58a9191c3",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:16.887",
+CommentUser: "Agent2"
+}
+],
+ContactID: "632686",
+IsPersonal: true,
+Owner: "Jermy Hadrik"
+},
+{
+FollowUpID: "5a4df6ae-d552-4d3c-862a-de745dad9f8e",
+FollowUpStatus: "New",
+FollowUpType: "Operations",
+FollowUpSubject: "issue with mobile",
+FollowUpDueDate: "2017-05-30T05:22:16.137",
+FollowUpLastModifiedDate: "2017-05-30T10:53:47.567",
+FollowUpCreationDate: "2017-05-30T05:22:16.137",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Shanti",
+FollowUpLabel: "#2E3192",
+FollowUpChannel: "Facebook",
+TotalComment: 2,
+CustomerName: "Fredil Erickson",
+Comment: [
+{
+CommentID: "2bd44ac3-1fa9-4f91-85b6-edb495bb5b70",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:16.137",
+CommentUser: "Agent1"
+},
+{
+CommentID: "44130fdc-786b-4367-8d8a-a5774bc00739",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:16.137",
+CommentUser: "Agent1"
+}
+],
+ContactID: "518160",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "1b6e5cb8-9a6a-4771-8c38-5f3f2e149824",
+FollowUpStatus: "Complete",
+FollowUpType: "CustomerSupport",
+FollowUpSubject: "issue with number",
+FollowUpDueDate: "2017-05-30T05:22:15.577",
+FollowUpLastModifiedDate: "2017-05-30T10:53:47.357",
+FollowUpCreationDate: "2017-05-30T05:22:15.577",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Spight",
+FollowUpLabel: "#7ACDC8",
+FollowUpChannel: "Phone",
+TotalComment: 1,
+CustomerName: "Barbara Jacobs",
+Comment: [
+{
+CommentID: "4daeb85e-6e77-44d6-896a-a696b2100d43",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:15.577",
+CommentUser: "Agent1"
+}
+],
+ContactID: "632686",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "8836ee0a-4123-425c-ad54-1651196b6d87",
+FollowUpStatus: "Complete",
+FollowUpType: "PreSales",
+FollowUpSubject: "issue with network",
+FollowUpDueDate: "2017-05-30T05:22:15.39",
+FollowUpLastModifiedDate: "2017-05-30T10:53:47.307",
+FollowUpCreationDate: "2017-05-30T05:22:15.39",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Badila",
+FollowUpLabel: "#F78E56",
+FollowUpChannel: "Facebook",
+TotalComment: 1,
+CustomerName: "Leticia Conner",
+Comment: [
+{
+CommentID: "a3095334-b4fc-466a-8013-88031d0412bf",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:15.39",
+CommentUser: "Agent1"
+}
+],
+ContactID: "819032",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "10d7a3b6-861b-4fd0-8d6a-fd7637489124",
+FollowUpStatus: "InProgress",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:15.02",
+FollowUpLastModifiedDate: "2017-05-30T10:53:47.08",
+FollowUpCreationDate: "2017-05-30T05:22:15.02",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Fleming",
+FollowUpLabel: "#EE1C24",
+FollowUpChannel: "Facebook",
+TotalComment: 4,
+CustomerName: "Barbara Jacobs",
+Comment: [
+{
+CommentID: "baa21d51-4b2e-4f7c-84ae-021ef9ce79d6",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:15.02",
+CommentUser: "Agent3"
+},
+{
+CommentID: "0b1e816f-4a4c-4d8a-862b-44e440836ffc",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:15.02",
+CommentUser: "Agent3"
+},
+{
+CommentID: "4e4eef9f-6d9b-446d-af8f-9d0da425f00f",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:15.02",
+CommentUser: "Agent3"
+},
+{
+CommentID: "d8f8bb7f-685f-4f62-affa-fa3c517df252",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:15.02",
+CommentUser: "Agent3"
+}
+],
+ContactID: "632686",
+IsPersonal: true,
+Owner: "Michale Koh"
+},
+{
+FollowUpID: "f9afa7fd-433a-43d2-849e-89ed451007e9",
+FollowUpStatus: "InProgress",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with mobile",
+FollowUpDueDate: "2017-05-30T05:22:14.83",
+FollowUpLastModifiedDate: "2017-05-30T10:53:46.997",
+FollowUpCreationDate: "2017-05-30T05:22:14.83",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Nada",
+FollowUpLabel: "#2E3192",
+FollowUpChannel: "Phone",
+TotalComment: 2,
+CustomerName: "Felix Long",
+Comment: [
+{
+CommentID: "6760f8b6-aa49-4bc4-88a4-bd1421499514",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:14.83",
+CommentUser: "Agent3"
+},
+{
+CommentID: "b216e4ad-100b-4be6-bbc2-a888a1cc80ad",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:14.83",
+CommentUser: "Agent3"
+}
+],
+ContactID: "817330",
+IsPersonal: true,
+Owner: "Michale Koh"
+},
+{
+FollowUpID: "c76d562d-6895-493f-92fa-0b6ff9c362a9",
+FollowUpStatus: "InProgress",
+FollowUpType: "Sales",
+FollowUpSubject: "issue with network",
+FollowUpDueDate: "2017-05-30T05:22:13.523",
+FollowUpLastModifiedDate: "2017-05-30T10:53:46.237",
+FollowUpCreationDate: "2017-05-30T05:22:13.523",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Jeannette",
+FollowUpLabel: "#00A651",
+FollowUpChannel: "Email",
+TotalComment: 1,
+CustomerName: "Fredil Erickson",
+Comment: [
+{
+CommentID: "c7e0ef01-6df2-422f-885f-2e65b20e67c9",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:13.523",
+CommentUser: "Agent1"
+}
+],
+ContactID: "518160",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "577cb35b-9211-4584-81f1-b240505341f5",
+FollowUpStatus: "Complete",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with network",
+FollowUpDueDate: "2017-05-30T05:22:13.143",
+FollowUpLastModifiedDate: "2017-05-30T10:53:46.023",
+FollowUpCreationDate: "2017-05-30T05:22:13.143",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Spight",
+FollowUpLabel: "#EE1C24",
+FollowUpChannel: "Fax",
+TotalComment: 4,
+CustomerName: "Alen Bridges",
+Comment: [
+{
+CommentID: "727d8fad-c1a1-4a54-aded-249a0e619d20",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:13.143",
+CommentUser: "Agent1"
+},
+{
+CommentID: "935cc4a2-3af2-4fdc-a683-efc50745b499",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:13.143",
+CommentUser: "Agent1"
+},
+{
+CommentID: "2db0d6a1-950f-4e8a-b539-1f3e21d3d10a",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:13.143",
+CommentUser: "Agent1"
+},
+{
+CommentID: "dddefd82-8d66-411d-b99a-bceda0023973",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:13.143",
+CommentUser: "Agent1"
+}
+],
+ContactID: "952003",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "045b656b-8b70-4ef0-bf78-d1f14a8440b5",
+FollowUpStatus: "New",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with number",
+FollowUpDueDate: "2017-05-30T05:22:12.76",
+FollowUpLastModifiedDate: "2017-05-30T10:53:45.9",
+FollowUpCreationDate: "2017-05-30T05:22:12.76",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Spight",
+FollowUpLabel: "#ED008C",
+FollowUpChannel: "Email",
+TotalComment: 2,
+CustomerName: "Shari Mann",
+Comment: [
+{
+CommentID: "0f7513ca-4ce0-42e3-8c66-69e2251772f5",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:12.76",
+CommentUser: "Agent1"
+},
+{
+CommentID: "f2788e7a-8a96-402f-9731-85d3b655ee76",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:12.76",
+CommentUser: "Agent1"
+}
+],
+ContactID: "557489",
+IsPersonal: true,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "b7f7d5f7-93ea-427a-8595-6601f73b3a19",
+FollowUpStatus: "Complete",
+FollowUpType: "Delivery",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:12.2",
+FollowUpLastModifiedDate: "2017-05-30T10:53:45.61",
+FollowUpCreationDate: "2017-05-30T05:22:12.2",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Gassner",
+FollowUpLabel: "#00A651",
+FollowUpChannel: "Phone",
+TotalComment: 1,
+CustomerName: "Reic Marsh",
+Comment: [
+{
+CommentID: "72391866-c50f-486c-9133-d8eed55054cb",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:12.2",
+CommentUser: "Agent1"
+}
+],
+ContactID: "629693",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "35440df0-5044-4cce-9a04-b9731d08a1cb",
+FollowUpStatus: "New",
+FollowUpType: "Support",
+FollowUpSubject: "issue with plan",
+FollowUpDueDate: "2017-05-30T05:22:11.463",
+FollowUpLastModifiedDate: "2017-05-30T10:53:45.313",
+FollowUpCreationDate: "2017-05-30T05:22:11.463",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Mcglasson",
+FollowUpLabel: "#EE1C24",
+FollowUpChannel: "Email",
+TotalComment: 4,
+CustomerName: "Alen Bridges",
+Comment: [
+{
+CommentID: "047c479a-aacd-447b-9cac-ec9a212cabb5",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:11.463",
+CommentUser: "Agent1"
+},
+{
+CommentID: "09e3bf3a-fa13-4722-b66d-ed3dcbcddfad",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:11.463",
+CommentUser: "Agent1"
+},
+{
+CommentID: "2d5943f6-f5e4-44aa-bc14-d8987d3bd932",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:11.463",
+CommentUser: "Agent1"
+},
+{
+CommentID: "f6787ccc-5eb4-4862-8866-fb34f3a565e4",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:11.463",
+CommentUser: "Agent1"
+}
+],
+ContactID: "952003",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "0af373f8-dc76-42c4-8eb9-1145d1b44e60",
+FollowUpStatus: "Complete",
+FollowUpType: "Billing",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:11.273",
+FollowUpLastModifiedDate: "2017-05-30T10:53:45.26",
+FollowUpCreationDate: "2017-05-30T05:22:11.273",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Armstrong",
+FollowUpLabel: "#2E3192",
+FollowUpChannel: "Fax",
+TotalComment: 1,
+CustomerName: "Yvethe Fields",
+Comment: [
+{
+CommentID: "498cfcf3-da19-4e40-bb98-c7318510edbb",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:11.273",
+CommentUser: "Agent1"
+}
+],
+ContactID: "569610",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "9d4c2df7-9aec-41b6-8a7e-d2d1d335ec11",
+FollowUpStatus: "New",
+FollowUpType: "Billing",
+FollowUpSubject: "issue with number",
+FollowUpDueDate: "2017-05-30T05:22:11.087",
+FollowUpLastModifiedDate: "2017-05-30T10:53:45.21",
+FollowUpCreationDate: "2017-05-30T05:22:11.087",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Angelita",
+FollowUpLabel: "#7ACDC8",
+FollowUpChannel: "Fax",
+TotalComment: 1,
+CustomerName: "Shari Mann",
+Comment: [
+{
+CommentID: "b11e90c4-e066-4ab2-9498-4063f03e4eb9",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:11.087",
+CommentUser: "Agent1"
+}
+],
+ContactID: "557489",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "9901e12e-f194-44d3-ab90-a719ce5ce8e2",
+FollowUpStatus: "New",
+FollowUpType: "Marketing",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:10.507",
+FollowUpLastModifiedDate: "2017-05-30T10:53:44.953",
+FollowUpCreationDate: "2017-05-30T05:22:10.507",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Badila",
+FollowUpLabel: "#00A651",
+FollowUpChannel: "Facebook",
+TotalComment: 4,
+CustomerName: "Kerry Brock",
+Comment: [
+{
+CommentID: "016de3c0-0b6f-4a34-9adb-b1ad380c6710",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:10.507",
+CommentUser: "Agent1"
+},
+{
+CommentID: "1c90dcf1-b246-4757-9e57-dfb1de03b3f6",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:10.507",
+CommentUser: "Agent1"
+},
+{
+CommentID: "92dd44fa-a57a-4501-8462-cc0b66ab4c2b",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:10.507",
+CommentUser: "Agent1"
+},
+{
+CommentID: "e61587c1-1925-48ef-af39-6922daf98ea3",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:10.507",
+CommentUser: "Agent1"
+}
+],
+ContactID: "169980",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "69c5b8a5-d138-45d7-899e-17ef79fd90ad",
+FollowUpStatus: "InProgress",
+FollowUpType: "Operations",
+FollowUpSubject: "issue with mobile",
+FollowUpDueDate: "2017-05-30T05:22:10.32",
+FollowUpLastModifiedDate: "2017-05-30T10:53:44.907",
+FollowUpCreationDate: "2017-05-30T05:22:10.32",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Spight",
+FollowUpLabel: "None",
+FollowUpChannel: "Email",
+TotalComment: 1,
+CustomerName: "Julius Hammod",
+Comment: [
+{
+CommentID: "8c9fd9a4-bf12-4d92-916c-311f7c7dbf0c",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:10.32",
+CommentUser: "Agent1"
+}
+],
+ContactID: "318047",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "1c2524c0-3627-4547-bab4-e1bcde7f1642",
+FollowUpStatus: "New",
+FollowUpType: "PreSales",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:09.76",
+FollowUpLastModifiedDate: "2017-05-30T10:53:44.6",
+FollowUpCreationDate: "2017-05-30T05:22:09.76",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Gassner",
+FollowUpLabel: "#EE1C24",
+FollowUpChannel: "Fax",
+TotalComment: 2,
+CustomerName: "Kerry Brock",
+Comment: [
+{
+CommentID: "182a86ff-86d2-4782-9646-a86984f783bd",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:09.76",
+CommentUser: "Agent1"
+},
+{
+CommentID: "3754945b-9761-4a4d-b1e8-b0def773bb4f",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:09.76",
+CommentUser: "Agent1"
+}
+],
+ContactID: "169980",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "77a1c149-5337-4caf-84ad-2046ff8bab79",
+FollowUpStatus: "Complete",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with mobile",
+FollowUpDueDate: "2017-05-30T05:22:09.373",
+FollowUpLastModifiedDate: "2017-05-30T10:53:44.463",
+FollowUpCreationDate: "2017-05-30T05:22:09.373",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Neha",
+FollowUpLabel: "#7ACDC8",
+FollowUpChannel: "Phone",
+TotalComment: 1,
+CustomerName: "Felix Long",
+Comment: [
+{
+CommentID: "ed60a629-212a-47a2-b1fb-ea9c0feb5cd6",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:09.373",
+CommentUser: "Agent1"
+}
+],
+ContactID: "817330",
+IsPersonal: true,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "6131cec4-8d1b-4de9-94fe-3ac69cf0b5a1",
+FollowUpStatus: "InProgress",
+FollowUpType: "CustomerSupport",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:08.997",
+FollowUpLastModifiedDate: "2017-05-30T10:53:44.237",
+FollowUpCreationDate: "2017-05-30T05:22:08.997",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Shanti",
+FollowUpLabel: "#2E3192",
+FollowUpChannel: "Fax",
+TotalComment: 2,
+CustomerName: "Barbara Jacobs",
+Comment: [
+{
+CommentID: "1588a17e-a4a0-499c-9960-5c58cea105a4",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:08.997",
+CommentUser: "Agent1"
+},
+{
+CommentID: "cc874b17-2c60-4063-bffc-02e2214ce04e",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:08.997",
+CommentUser: "Agent1"
+}
+],
+ContactID: "632686",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "7245c0b8-64d9-42d6-8454-a96b80ec54d4",
+FollowUpStatus: "Complete",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with plan",
+FollowUpDueDate: "2017-05-30T05:22:07.84",
+FollowUpLastModifiedDate: "2017-05-30T10:53:43.72",
+FollowUpCreationDate: "2017-05-30T05:22:07.84",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Margene",
+FollowUpLabel: "#FFF200",
+FollowUpChannel: "Facebook",
+TotalComment: 4,
+CustomerName: "Felix Long",
+Comment: [
+{
+CommentID: "d1072d18-af36-4439-aac8-1b48248dcdfa",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:07.84",
+CommentUser: "Agent2"
+},
+{
+CommentID: "a75f8838-ebbf-41a0-a55d-42cb431a28b7",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:07.84",
+CommentUser: "Agent2"
+},
+{
+CommentID: "46fee77a-c0cb-4bf8-96e7-6b68901765e8",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:07.84",
+CommentUser: "Agent2"
+},
+{
+CommentID: "990084cc-6dac-4e51-bc89-b3145b759948",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:07.84",
+CommentUser: "Agent2"
+}
+],
+ContactID: "817330",
+IsPersonal: true,
+Owner: "Jermy Hadrik"
+},
+{
+FollowUpID: "54e43819-8647-4c0b-b52d-726f47a7f1f4",
+FollowUpStatus: "New",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with number",
+FollowUpDueDate: "2017-05-30T05:22:06.863",
+FollowUpLastModifiedDate: "2017-05-30T10:53:43.317",
+FollowUpCreationDate: "2017-05-30T05:22:06.863",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Spight",
+FollowUpLabel: "#F78E56",
+FollowUpChannel: "Facebook",
+TotalComment: 4,
+CustomerName: "Julius Hammod",
+Comment: [
+{
+CommentID: "621c2ef1-027c-4d45-840a-2d02becbef4f",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:06.863",
+CommentUser: "Agent1"
+},
+{
+CommentID: "089c4453-4c3e-44f9-bd49-2d74c8ac2450",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:06.863",
+CommentUser: "Agent1"
+},
+{
+CommentID: "9c7a1e6f-648b-4278-9c9c-c54143c03e48",
+CommentDesc: "Complete_3",
+CommentDate: "2017-05-30T10:52:06.863",
+CommentUser: "Agent1"
+},
+{
+CommentID: "dde93dcc-48b4-4c30-9141-f4b878a313f3",
+CommentDesc: "Complete_4",
+CommentDate: "2017-05-30T10:52:06.863",
+CommentUser: "Agent1"
+}
+],
+ContactID: "318047",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "f58ffb00-8068-4a00-80eb-b19e1c581053",
+FollowUpStatus: "InProgress",
+FollowUpType: "Development",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:06.057",
+FollowUpLastModifiedDate: "2017-05-30T10:53:42.89",
+FollowUpCreationDate: "2017-05-30T05:22:06.057",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Mcglasson",
+FollowUpLabel: "#ED008C",
+FollowUpChannel: "Facebook",
+TotalComment: 1,
+CustomerName: "Kerry Brock",
+Comment: [
+{
+CommentID: "9fca6c51-28b1-4a95-877d-c79c67eaaaac",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:06.057",
+CommentUser: "Agent1"
+}
+],
+ContactID: "169980",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "687a80ef-4dbf-472a-ab82-e41f85622f98",
+FollowUpStatus: "Complete",
+FollowUpType: "Shipping",
+FollowUpSubject: "issue with coverage",
+FollowUpDueDate: "2017-05-30T05:22:04.64",
+FollowUpLastModifiedDate: "2017-05-30T10:53:42.16",
+FollowUpCreationDate: "2017-05-30T05:22:04.64",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Aisha",
+FollowUpLabel: "#7ACDC8",
+FollowUpChannel: "Facebook",
+TotalComment: 2,
+CustomerName: "Shari Mann",
+Comment: [
+{
+CommentID: "1a45b594-c6c7-43a2-922f-d0b21b3c560c",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:04.64",
+CommentUser: "Agent3"
+},
+{
+CommentID: "896a7316-bb80-4d23-8a58-70e44ea1fe11",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:04.64",
+CommentUser: "Agent3"
+}
+],
+ContactID: "557489",
+IsPersonal: true,
+Owner: "Michale Koh"
+},
+{
+FollowUpID: "e715bd58-a5a1-4cae-a103-722fa3bc2abc",
+FollowUpStatus: "InProgress",
+FollowUpType: "Delivery",
+FollowUpSubject: "issue with mobile",
+FollowUpDueDate: "2017-05-30T05:22:04.443",
+FollowUpLastModifiedDate: "2017-05-30T10:53:42.077",
+FollowUpCreationDate: "2017-05-30T05:22:04.443",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Shanti",
+FollowUpLabel: "#7ACDC8",
+FollowUpChannel: "Phone",
+TotalComment: 2,
+CustomerName: "Leticia Conner",
+Comment: [
+{
+CommentID: "7af8abba-9786-4c38-a91e-d290c0db4b68",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:04.443",
+CommentUser: "Agent1"
+},
+{
+CommentID: "9cb91454-b2ad-4e0a-b6d3-5fbeea636e0c",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:04.443",
+CommentUser: "Agent1"
+}
+],
+ContactID: "819032",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+},
+{
+FollowUpID: "ca93c6de-66d7-4269-bebc-78e5fe4daaec",
+FollowUpStatus: "InProgress",
+FollowUpType: "Sales",
+FollowUpSubject: "issue with number",
+FollowUpDueDate: "2017-05-30T05:22:03.383",
+FollowUpLastModifiedDate: "2017-05-30T10:53:41.657",
+FollowUpCreationDate: "2017-05-30T05:22:03.383",
+FollowUpCompleteDate: null,
+FollowUpLastModifyUser: "Fleming",
+FollowUpLabel: "#2E3192",
+FollowUpChannel: "Email",
+TotalComment: 2,
+CustomerName: "Alen Bridges",
+Comment: [
+{
+CommentID: "c164b1e1-92b6-4a09-9153-c2aa322fd2a1",
+CommentDesc: "Complete_1",
+CommentDate: "2017-05-30T10:52:03.383",
+CommentUser: "Agent1"
+},
+{
+CommentID: "2635cbb0-5289-4739-9462-dc67d27f943d",
+CommentDesc: "Complete_2",
+CommentDate: "2017-05-30T10:52:03.383",
+CommentUser: "Agent1"
+}
+],
+ContactID: "952003",
+IsPersonal: false,
+Owner: "Jed Bartlett"
+}
+]
+}

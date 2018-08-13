@@ -1,0 +1,17 @@
+<div bsModal #confirmationModal="bs-modal" id="myModal" class="modal" [config]="{backdrop: 'static', keyboard: false}">
+     <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">{{UIParams?.Attention}}</h3>
+      </div>
+      <div class="modal-body">
+        <p class="text-left" >{{message}}</p>
+      </div>
+      <div *ngIf="type =='confirm'" class="modalFooterActionBar"><button class="buttonAction uwf-cancel clr_red" (click)="hideConfirmationDialog()"> {{UIParams?.Cancel}}</button> <button class="buttonAction uwf-check clr_green"
+            (click)='confirmQueueTask()'> {{UIParams?.Save}}</button></div>
+      <div *ngIf="type !='confirm'" class="modalFooterActionBar"><button class="buttonAction uwf-check clr_green"
+            (click)='hideConfirmationDialog()'> {{UIParams?.OK}}</button></div>
+    </div>
+  </div>
+</div>

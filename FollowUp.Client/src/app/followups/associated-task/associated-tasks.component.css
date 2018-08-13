@@ -1,0 +1,12 @@
+/* AssociatedTaskModal */
+.modal { z-index: 10000; margin-top:0px !important;position: absolute;overflow:hidden}
+.ihModalContainer { width: auto; height: 580px; background: #F9F9F9; margin: 20px 80px; position: relative; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.ihModalComments { clear:both; padding: 2px 15px 15px ; line-height: 16px; white-space: pre-wrap; }
+.alignCenter                 {text-align: center}
+.yellow {color:yellow}
+
+
+.no-margin-left {margin-left:0px !important}
+.print {
+    font-size: 0;
+}

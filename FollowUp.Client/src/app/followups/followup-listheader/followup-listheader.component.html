@@ -1,0 +1,81 @@
+<!-- ==[ Filters Bar ]========================================================================== -->
+<!--<div class="infobar_textdisplay">Follow-Ups</div>-->
+<div class="infobar_notification">
+  <div>
+    <label for="personal" class="followups-header-label">{{UIParams?.Notification}}</label>
+    <label>
+      <followup-toggle-switch [UIParams]="UIParams" [reloadToggleView]="reloadToggleView" toggleName="notificationToggle" [itemsPerPage]='countPerPage' (notify)='onNotify($event)'></followup-toggle-switch>
+    </label>
+  </div>
+</div>
+<div class="infobar_filters">
+  <div></div>
+  <!--remove new button div -->
+
+  <div>
+    <label for="states" class="followups-header-label">{{UIParams?.Followup}}</label>
+    <!--<label>
+             <followup-toggle-switch [reloadToggleView]="reloadToggleView" [itemsPerPage] = 'countPerPage' (notify)='onNotify($event)'></followup-toggle-switch>
+    </label>-->
+    <div class="select_StylePlain">
+      <span class="caret dropdown_arrow"></span>
+      <select id="states" [(ngModel)]="selectedState" (change)="onStateChange($event.target.value)">
+                <option [value]="defaultState?.StateID">{{defaultState?.Description}}</option>
+                <option *ngFor="let datum of configurationData?.States" [value]="datum.StateID">{{UIParams[datum.Description]}}</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <label for="status" class="followups-header-label">{{UIParams?.Status}}</label>
+    <div class="select_StylePlain">
+      <span class="caret dropdown_arrow"></span>
+      <select id="status" [(ngModel)]="selectedStatus" (change)="onChange($event.target.value, 2)">
+        <option [value]="defaultAllStatus?.StatusID">{{defaultAllStatus?.Description}}</option>
+        <option [value]="defaultStatus?.StatusID">{{defaultStatus?.Description}}</option>
+        <option *ngFor="let datum of configurationData?.Status" [value]="datum.StatusID">{{UIParams[datum.Description] }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="label_filter">
+    <label for="followUpLabel" class="followups-header-label">{{UIParams?.Label}}</label>
+    <div class="dropdown">
+      <div class="btn1 dropdown-toggle dropdown" data-toggle="dropdown">
+        <span class="bubble-count white" [class.no-label-border]="selectedLabelValue== 1" [style.background]="selectedLabelColor"></span> <span id="test" [class.negativeMargin]="selectedLabelValue==defaultLabel?.LabelID">{{selectedLabel}}</span>
+        <span class="caret"></span>
+      </div>
+      <ul class="dropdown-menu" role="menu">
+        <li (click)="onLabelChange(defaultLabel?.LabelName,defaultLabel?.Description,defaultLabel?.LabelID)"><span class="default_label_style"> {{defaultLabel.LabelName}}</span></li>
+        <li *ngFor="let datum of configurationData?.Labels; let i = index" (click)="onLabelChange(datum?.LabelName,datum.Description,datum?.LabelID)">
+          <span class="bubble-count " [class.no-label-border]="datum?.LabelID == 1" [style.background]="datum.Description"></span> <span>  {{datum.LabelName}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <label for="dateRangeValue" class="followups-header-label">{{UIParams?.DueDate}}</label>
+    <div daterangepicker [options]="rangePickerOptions1"
+         (applyDaterangepicker)="applyDateRange($event,2)"
+         (hideDaterangepicker)="calendarEventsHandler($event)"
+         (showDaterangepicker)="calendarEventsHandler($event)">
+      <div class="select_StylePlain">
+        <span class="caret"></span>
+        <input readonly id="dateRangeValue" type="text" name="daterange" placeholder="{{UIParams?.DueDateRange}}" [value]="dueDateValue" />
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="type" class="followups-header-label">{{UIParams?.Type}}</label>
+    <div class="select_StylePlain">
+      <span class="caret dropdown_arrow"></span>
+      <select id="type" [(ngModel)]="selectedType" (change)="onChange($event.target.value, 3)">
+        <option [value]="defaultType.FollowUpTypeId">{{defaultType?.Description}}</option>
+        <option *ngFor="let datum of activeFUTypes" [value]="datum.FollowUpTypeId">{{datum.Name}}</option>
+      </select>
+
+    </div>
+  </div>
+  <div>
+    <label for="agent" class="followups-header-label">{{UIParams?.Search}}</label>
+    <followup-search [clearSearchText]="clearSearchText" (searchNotify)='onSearchNotify($event)' (clearSearchNotify)='onClearSearchNotify($event)' [UIParams]="UIParams"></followup-search>
+  </div>
+</div>
