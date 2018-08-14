@@ -1,4 +1,0 @@
-<input class="followup-search-input" #searchBox title="{{UIParams?.Search}}" (keyup)="onKey($event,searchBox.value)"
- [value]='searchValue' type="text" [placeholder]="UIParams?.QuickSearch" />
-<em *ngIf="_isSearchBoxEmpty" class="fa fa-search followup-icon"></em>
-<em *ngIf="!_isSearchBoxEmpty" class="fa fa-times followup-icon" (click)="notifyClearButtonClicked()"></em>
