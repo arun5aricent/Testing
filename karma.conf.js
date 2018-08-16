@@ -51,14 +51,15 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
+      preprocessors: {
+         '*.js': ['coverage'] 
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-      reporters: ['progress', 'html', 'junit'],
+      reporters: ['progress', 'html', 'junit', 'coverage', 'sonarqube', 'sonarqubeUnit'],
  
     htmlReporter: {
         outputFile: 'report.html',
@@ -80,6 +81,38 @@ module.exports = function(config) {
           classNameFormatter: undefined, // function (browser, result) to customize the classname attribute in xml testcase element
           properties: {} ,// key value pair of properties to add to the <properties> section of the report
           xmlVersion: null // use '1' if reporting to be per SonarQube 6.2 XML format
+      },
+      // optionally, configure the reporter
+      coverageReporter: {
+          type: 'html',
+          dir: 'coverage/',
+          subdir: '.'
+      },
+      sonarQubeUnitReporter: {
+          sonarQubeVersion: 'LATEST',
+          outputFile: 'reports/ut_report.xml',
+          overrideTestDescription: true,
+          testPaths: ['./tests'],
+          testFilePattern: '.spec.js',
+          useBrowserName: false
+      },
+      // Default configuration
+      sonarqubeReporter: {
+          basePath: './tests',        // test files folder
+          filePattern: '**/*spec.js', // test files glob pattern
+          encoding: 'utf-8',          // test files encoding
+          outputFolder: 'reports',    // report destination
+          legacyMode: false,          // report for Sonarqube < 6.2 (disabled)
+          reportName: (metadata) => { // report name callback
+              /**
+               * Report metadata array:
+               * - metadata[0] = browser name
+               * - metadata[1] = browser version
+               * - metadata[2] = plataform name
+               * - metadata[3] = plataform version
+               */
+              return metadata.concat('xml').join('.');
+          }
       },
    
 
