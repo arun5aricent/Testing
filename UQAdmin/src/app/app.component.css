@@ -1,0 +1,52 @@
+.mainContainer {
+    margin-top: 50px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uq-admin-table {
+    width: 100%;
+}
+
+.uq-admin-table thead {
+    color: white;
+    background: #4489b6;    
+}
+
+.uq-admin-table tr {
+    background: white;
+}
+
+.uq-admin-table td {
+    height: 50px;
+    padding-left: 15px;
+}
+
+.error {
+    width: 100%;
+    color: white;
+    background: red;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.error .message {
+    margin-left: 15px;    
+}
+
+.error .closeError {
+    float: right;
+    margin-right: 5px;
+    margin-top: -6px;
+}
+.right {
+    float: right;
+}
+
+button:disabled:hover {
+    cursor: not-allowed;
+}
+
+

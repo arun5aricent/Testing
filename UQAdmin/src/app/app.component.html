@@ -1,0 +1,29 @@
+<div class="mainContainer" *ngIf="uqEnabled == 'true'">
+    <div class="error" *ngIf="showError">
+        <span class="message">{{error}}</span>
+        <span class="closeError"><i class="uwf-cancel" (click)="hideError()"></i></span>
+    </div>
+    <button class="right" style="padding-top: 4px; margin-bottom: 10px;">
+        <i class="uwf-refresh" (click)="refreshApp()"></i>
+    </button>
+    <table class="uq-admin-table">
+        <thead>
+            <td width="40%">Server Name</td>
+            <td width="15%">Server Status</td>
+            <td>Total Pending Operations</td>
+            <td width="20%">Actions</td>
+        </thead>
+        <tr *ngFor="let socialMiner of socialMiners">
+            <td>{{socialMiner.FQDN}}</td>
+            <td>{{socialMiner.State}}</td>
+            <td><span *ngIf="socialMiner.Progress >= 0">{{socialMiner.Progress}} operation(s) remaining</span></td>
+            <td>
+                <button style="margin-top: 10px; margin-bottom: 10px;" [disabled]="socialMiner.State == stateType.Down" (click)="setSocialMinerStateDown(socialMiner.FQDN)">Mark As Down</button>
+                <button style="margin-bottom: 10px;" [disabled]="socialMiner.Progress > 0 || socialMiner.State != stateType.Down" (click)="setSocialMinerResubmitRequest(socialMiner.FQDN)">Requeue Tasks</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="mainContainer" *ngIf="uqEnabled != 'true'">
+    Universal Queue is currently not enabled. To use this feature, please enable Universal Queue in your configurations.
+</div>
