@@ -15,7 +15,7 @@ describe('decodeHTMLEntities test suit', function () {
     it('should return html string without modification', function () {       
 
       
-        expect(2+2).toBe(5);
+        expect(2+2).toBe(4);
 
     });
 
